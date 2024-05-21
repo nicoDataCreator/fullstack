@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 // Requirements: routes
+const userRoutes = require("./routes/user.routes")
 
 // Middlewares
 app.use(cors());
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 
 /* ----- API ROUTES ----- */
+app.use('/api/user', userRoutes);
 
 const server = app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`);
