@@ -8,8 +8,10 @@ const pool = new Pool({
     password: "hOs40vt17OJo50ZDXYzQ9QEJrN982xzb",
 });
 
-pool.connect(function(err) {
-    if (err) throw err;
+pool.connect(function (err) {
+    if (err) {
+        throw err;
+    }
     console.log(`Connected to 'beyond-education' on PostgreSQL at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} on ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`);
-})
+});
 module.exports = pool;

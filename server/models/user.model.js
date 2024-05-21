@@ -3,17 +3,27 @@ const queries = require("../sql_queries/user.queries.js"); // Queries SQL
 
 // Create a new user
 const createUser = async (user) => {
-    const { first_name, last_name, username, email, password, login_status } = user;
+    const { nombre, apellidos, fecha_nac, dni, nacionalidad, domicilio, ciudad, provincia, id_pais_origen, cp, telefono, email, colegio, curso, id_servicio, id_pais_destino } = user;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(queries.createUser, [ // add SQL query in file
-            first_name,
-            last_name,
-            username,
+            nombre,
+            apellidos,
+            fecha_nac,
+            dni,
+            nacionalidad,
+            domicilio,
+            ciudad,
+            provincia,
+            id_pais_origen,
+            cp,
+            telefono,
             email,
-            password,
-            login_status,
+            colegio,
+            curso,
+            id_servicio,
+            id_pais_destino
         ]);
         result = data.rowCount;
         console.log(result);
