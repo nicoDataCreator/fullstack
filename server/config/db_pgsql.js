@@ -2,11 +2,12 @@ const { Pool } = require("pg");
 
 const pool = new Pool({
     host: "dpg-cp5l3ra1hbls73fhevj0-a.frankfurt-postgres.render.com",
+    ssl: true,
+    port: 5432,
     user: "beyond_education_user",
-    port: "5432",
     database: "beyond_education",
-    password: "hOs40vt17OJo50ZDXYzQ9QEJrN982xzb",
-});
+    password: "hOs40vt17OJo50ZDXYzQ9QEJrN982xzb"
+ });
 
 pool.connect(function (err) {
     if (err) {
