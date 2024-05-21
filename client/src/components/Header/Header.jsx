@@ -1,12 +1,13 @@
 import React from "react";
-import Nav from "./Nav/Nav";
+import Nav from "../Header/Nav/Nav";
+import Traductor from "./Traductor/Traductor"
 
 const Header = () => {
   return (
-    <div>
-      <h2>This is Header.jsx</h2>
+    <section>
       <Nav />
-    </div>
+      <Traductor/>
+    </section>
   );
 };
 

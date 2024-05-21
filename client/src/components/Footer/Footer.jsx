@@ -1,11 +1,15 @@
 import React from "react";
+import FooterTop from "./FooterTop/FooterTop";
+import FooterBottom from "./FooterBottom/FooterBottom";
 
 const Footer = () => {
   return (
-    <div>
-      <h2>This is Footer.jsx</h2>
-    </div>
-  );
+
+    <footer>
+      <FooterTop></FooterTop>
+      <FooterBottom></FooterBottom>
+    </footer>
+  )
 };
 
 export default Footer;

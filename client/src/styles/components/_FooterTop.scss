@@ -1,0 +1,67 @@
+@import '../utils/variables.scss';
+
+.footer-top {
+    width: 100%;
+    background: $gris-formulario-fondos;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    .logo-and-text {
+
+        display: flex;
+        gap: 35px;
+        text-align: center;
+
+        .logo-vertical {
+            width: 125px;
+            height: 125px;
+        }
+
+    }
+
+    .info-legal {
+        display: flex;
+        gap: 90px;
+
+        p{
+            margin: 1px;
+        }
+    }
+
+    .newsletter {
+        width: 85%;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .submit {
+                background-color: $magenta;
+                color: $blanco;
+                border-radius: 20px;
+            }
+
+            .input-line {
+                border: none;
+                border-bottom: 1px solid #000;
+                background-color: transparent;
+                padding: 10px 10px; 
+                font-size: 18px;
+                outline: none;
+              }
+          
+              .input-line::placeholder {
+                color: #999;
+              }
+        }
+
+
+    }
+
+
+}
