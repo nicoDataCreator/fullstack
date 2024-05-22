@@ -9,5 +9,17 @@
         width: 450px;
         height: 700px;
     }
-}
 
+    button {
+        background-color: transparent;
+
+        &:hover {
+            border: 1px solid transparent;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}

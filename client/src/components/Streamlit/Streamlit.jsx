@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import chattyBot from '../../../src/assets/chatty-logo.png';
 
 const Streamlit = () => {
   const [showIframe, setShowIframe] = useState(false);
@@ -16,7 +17,9 @@ const Streamlit = () => {
           src="https://chatybe.streamlit.app/?embed=true"
         ></iframe>
       ) : (
-        <button onClick={handleButtonClick}>Show Iframe</button>
+        <button onClick={handleButtonClick}>
+          <img src={chattyBot} alt="Chatty Bot" />
+        </button>
       )}
     </div>
   );
