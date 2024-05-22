@@ -1,18 +1,23 @@
 const { Pool } = require("pg");
+require("dotenv").config();
 
 const pool = new Pool({
-    host: "dpg-cp5l3ra1hbls73fhevj0-a.frankfurt-postgres.render.com",
-    ssl: true,
-    port: 5432,
-    user: "beyond_education_user",
-    database: "beyond_education",
-    password: "hOs40vt17OJo50ZDXYzQ9QEJrN982xzb"
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    ssl: {
+        rejectUnauthorized: false
+    }
  });
 
-pool.connect(function (err) {
+ pool.connect(function (err) {
     if (err) {
-        throw err;
+        console.error('Error connecting to PostgreSQL database:', err);
+        process.exit(1); 
     }
     console.log(`Connected to 'beyond-education' on PostgreSQL at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} on ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`);
 });
+
 module.exports = pool;

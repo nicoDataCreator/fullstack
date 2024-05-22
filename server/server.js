@@ -4,6 +4,7 @@ process.on('warning', e => console.warn(e.stack));
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
+const path = require('path');
 require('../server/config/auth.js')
 
 const isLoggedIn = (req, res, next) => {
@@ -11,7 +12,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 
 // Requirements: routes
@@ -21,7 +22,11 @@ const passport = require("passport");
 // Middlewares
 app.use(cors());
 app.use(express.json());
-app.use(session({ secret: 'beyond-education' }));
+app.use(session({ 
+  secret: 'beyond-education', 
+  resave: false, 
+  saveUninitialized: true 
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -32,6 +37,20 @@ app.use(passport.session());
 app.get('/', (req, res) => {
   res.status(200).send("Hello World!");
 });
+
+
+/* ----- BUILD ROUTES ----- */
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '../client/build')));
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname,'../client/build/index.html'));
+});
+
+
+
+/* ----- AUTH ROUTES ----- */
 
 // http://localhost:3000/auth
 // Page shows a button with a link that redirects to '/auth/google'
