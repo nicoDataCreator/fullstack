@@ -5,8 +5,11 @@ const Contact = () => {
     <section className="section-form">
 
       <div className="container-form">
-        <h2>Contáctanos, <span className="cursiva"> te escuchamos</span></h2>
+
+        <h2 className="cormorand">Contáctanos, <span className="cursiva"> te escuchamos</span></h2>
+
         <form action="" className="form">
+
           <div className="celdas">
             <label htmlFor="">Nombre de contacto
               <span className="required">*</span>:
@@ -47,58 +50,80 @@ const Contact = () => {
             <input type="text" />
           </div>
 
-
           <p>Servicios de interés:</p>
-          
-          <label className="option-checkbox">
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Orientación vocacional
-          </label>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Cursos Pre-Universitarios
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label>Orientación vocacional</label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Selección y aplicación a colegios
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label>Cursos Pre-Universitarios</label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Campamentos de Verano
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label>Selección y aplicación a colegios</label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Aplicación a grados universitarios
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Campamentos de Verano
+            </label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Acceso directo para internacionales a universidades en España/Portugal
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label>Aplicación a grados universitarios</label>
+          </div>
 
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Orientación profesionalSelección y aplicación a masters</label>
+          </div>
 
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Selección y aplicación a masters</label>
+          </div>
 
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Preparación SATs</label>
+          </div>
 
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Acceso directo para internacionales a universidades en España/Portugal
+            </label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Orientación profesionalSelección y aplicación a masters
-          </label>
+          <div className="checkbox-container">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Prepara tu llegada a España/Portugal
+            </label>
+          </div>
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
-            Preparación SATs
-          </label>
+          <p>Obseraciones:</p>
+          <input type="text-area" wrap="soft" className="text-area" />
 
-          <label>
-            <input type="checkbox" className="checkbox" value="" name="" />
+          <div className="selector">
+            <label for="cars">¿Cómo nos has conocido?:</label>
 
-          </label>
+            <select name="cars" id="cars" className="select-box">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
 
+          <div className="checkbox-terms">
+            <input type="checkbox" className="input-checkbox" value="" name="" />
+            <label className="service">Acepto términos y condiciones de la política de privacidad<span className="required">*</span>.
+            </label>
+          </div>
 
         </form>
       </div>
