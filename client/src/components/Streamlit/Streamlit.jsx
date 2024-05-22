@@ -18,7 +18,7 @@ const Streamlit = () => {
         ></iframe>
       ) : (
         <button onClick={handleButtonClick}>
-          <img src={chattyBot} alt="Chatty Bot" />
+          <img src={chattyBot} alt="Chatty Bot" className="bot-image"/>
         </button>
       )}
     </div>
