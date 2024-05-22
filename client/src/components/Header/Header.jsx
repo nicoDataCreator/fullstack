@@ -5,8 +5,8 @@ import Traductor from "./Traductor/Traductor"
 const Header = () => {
   return (
     <section>
-      <Traductor/>
       <Nav />
+      <Traductor/>
     </section>
   );
 };
