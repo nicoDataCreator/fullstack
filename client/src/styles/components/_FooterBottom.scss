@@ -1,37 +1,36 @@
 @import '../utils/variables.scss';
 
-.footer-bottom {
+.footer-bottom{
     width: 100vw;
     background: $magenta;
     text-align: center;
     color: $blanco;
 
-    .socialApps-container {
-       
-        padding: 10px;
+    .socialApps-container{
 
-        .link {
-            margin: 10px;
-           
-            .logo{
-                width: 25px;
-                height: 25px;
-            }
+   
+
+
+        .logos{
+            width: 25px;
+            height: 25px;
+            padding: 20px 20px 0;
         }
     }
 
-    .infoContact-container {
+    .infoContact-container{
         font-size: 1.1rem;
         width: 75%;
-        margin: 0px auto;
+        margin: 0 auto;
         padding: 20px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
 
-        .links-infoContact {
+        .links-infoContact{
             color: $blanco;
             font-weight: 400;
         }
+
     }
 }
