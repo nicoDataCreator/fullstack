@@ -1,0 +1,60 @@
+@import '../utils/variables.scss';
+
+
+.section-form {
+    width: 100vw;
+
+    .container-form {
+        padding: 55px 25px;
+        background-color: $gris-formulario-fondos;
+
+        h2 {
+            font-size: 2.2rem;
+            padding-bottom: 15px;
+        }
+
+        .cursiva {
+            font-family: 'Nothing You Could Do', cursive;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .celdas {
+                display: flex;
+                flex-direction: column;
+                font-size: 0.79rem;
+                width: 48%;
+
+                label {
+
+                    .required {
+                        color: red;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+
+                .option-checkbox{
+                    width: 40%;
+                }
+
+            }
+
+      
+            .checkbox {
+                margin-right: 10px;
+            }
+        }
+    }
+
+}
