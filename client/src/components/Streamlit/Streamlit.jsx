@@ -9,7 +9,7 @@ const Streamlit = () => {
 
 
   return (
-    <div>
+    <div className="streamlit">
       {showIframe ? (
         <iframe
           className="chatty"

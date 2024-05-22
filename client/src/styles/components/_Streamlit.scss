@@ -1,4 +1,13 @@
-.chatty {
-    width: 450px;
-    height: 700px;
+.streamlit {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 24px;
+    margin-right: 24px;
+
+    .chatty {
+        width: 450px;
+        height: 700px;
+    }
 }
+
