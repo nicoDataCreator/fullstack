@@ -1,8 +1,6 @@
 const { Pool } = require("pg");
 require('dotenv').config();
 
-// prueba
-
 const poolHost = (`${process.env.poolHost}`);
 const poolUser = (`${process.env.poolUser}`);
 const poolDatabase = (`${process.env.poolDatabase}`);
