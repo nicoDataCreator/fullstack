@@ -2,12 +2,15 @@
 
 .section-form {
     width: 100vw;
+    background-color: $gris-formulario-fondos;
+  
+  
 
     .container-form {
         padding: 55px 25px;
-        background-color: $gris-formulario-fondos;
+     
 
-        .cormorand{
+        .cormorand {
             font-family: 'Cormorant Garamond', Arial, Helvetica, sans-serif;
         }
 
@@ -60,14 +63,14 @@
                 margin: 0 auto;
                 align-items: flex-start;
                 width: 48%;
-                
+
                 .input-checkbox {
-                margin-top: 5px;
+                    margin-top: 5px;
                 }
             }
         }
 
-        .text-area{
+        .text-area {
             width: 100%;
             height: 70px;
             padding: 5px;
@@ -75,22 +78,34 @@
             border-radius: 3px;
         }
 
-        .selector{
+        .selector {
             width: 100%;
             margin-top: 15px;
             display: flex;
             flex-direction: column;
             font-size: 0.9rem;
 
-            .select-box{
+            .select-box {
                 width: 100%;
                 padding: 10px;
                 border-radius: 3px;
             }
         }
-
-        .checkbox-terms{
-            
-        }
     }
+}
+
+@media (min-width: 700px) {
+    .container-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .container-form {
+        width: 70%;
+   
+    }
+
 }
