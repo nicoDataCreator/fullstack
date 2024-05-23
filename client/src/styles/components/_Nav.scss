@@ -24,9 +24,15 @@
         }
     }
 
-    &>.logo {
+    .logo-anchor {
         width: 290px;
+
+        &>.logo {
+            width: 290px;
+        }
     }
+
+
 
     // Menu hamburguesa
     &>input {
@@ -98,13 +104,18 @@
             img {
                 width: 30px;
                 margin-left: 80px;
-                margin-top: 20px;
             }
         }
 
-        &>.logo {
+        .logo-anchor {
             width: 290px;
+
+            &>.logo {
+                width: 290px;
+            }
         }
+
+
 
         // Menu hamburguesa
         &>input {
@@ -165,8 +176,8 @@
         width: 100%;
         position: relative;
         background-color: white;
-        gap:10px;
-        
+        gap: 10px;
+
 
         &>label {
             display: none;
@@ -179,12 +190,12 @@
             justify-content: right;
             align-items: right;
             background-color: white;
-           
+
 
             &>li {
                 font-size: 8px;
                 margin-left: 100px;
-                color:black;
+                color: black;
 
                 &:hover {
                     background-color: $magenta;
@@ -200,7 +211,7 @@
                 }
 
                 &>a {
-                    color: black ;
+                    color: black;
                     background-color: white;
                     font-size: xx-large;
                 }
