@@ -14,7 +14,7 @@ const Streamlit = () => {
       {showIframe ? (
         <iframe
           className="chatty"
-          src="https://chatybe.streamlit.app/?embed=true"
+          src="https://chatybe.streamlit.app/?embed=true&embed_options=hide_toolbar&shide_toolbar"
         ></iframe>
       ) : (
         <button onClick={handleButtonClick}>
