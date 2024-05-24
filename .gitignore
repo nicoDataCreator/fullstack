@@ -8,8 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
 *.local
 
 # Editor directories and files
@@ -112,9 +110,7 @@ web_modules/
 .next
 out
 
-# Nuxt.js build / generate output
-.nuxt
-dist
+
 
 # Gatsby files
 .cache/
