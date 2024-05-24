@@ -16,7 +16,9 @@ const port = 3000;
 
 // Requirements: routes
 const userRoutes = require("./routes/user.routes");
+
 const contactRoutes = require("./routes/contact.routes")
+
 const passport = require("passport");
 
 // Middlewares

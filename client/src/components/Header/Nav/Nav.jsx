@@ -16,7 +16,11 @@ const Nav = () => {
 
   return (
     <nav className="nav">
-      <img className='logo' src={logobeyond}></img>
+
+      <a href="/" className="logo-anchor">
+        <img className='logo' src={logobeyond} alt="logo"></img>
+      </a>
+
       <label htmlFor="menu" onClick={toggleMenu}><img src={hamburguesa} alt="hamburguesa" width={"50px"} /></label>
       <input type="checkbox" id="menu" checked={menuOpen} readOnly />
       <ul className={menuOpen ? "menu-open" : ""} onClick={closeMenu}>
@@ -30,3 +34,8 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+
+
+

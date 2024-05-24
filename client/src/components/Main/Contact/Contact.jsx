@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Contact = () => {
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -96,6 +97,7 @@ const Contact = () => {
           <input type="submit" value="Enviar" />
         </form>
       </div>
+
     </section>
   );
 };
