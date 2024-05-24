@@ -5,14 +5,15 @@ require('dotenv').config();
 
 const poolHost = (`${process.env.poolHost}`);
 const poolUser = (`${process.env.poolUser}`);
-const poolDatabase = (`${process.env.poolDatabase}`);
 const poolPassword = (`${process.env.poolPassword}`);
+const poolPort = (`${process.env.poolPort}`);
+const poolDatabase = (`${process.env.poolDatabase}`);
 
 
 const pool = new Pool({
     host: poolHost,
     ssl: true,
-    port: 5432,
+    port: poolPort,
     user: poolUser,
     database: poolDatabase,
     password: poolPassword

@@ -6,11 +6,13 @@
     position: relative;
     display: flex;
     flex-direction: row;
+
     justify-content: space-between;
     background-color: white;
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+
 
 
     &>label {
@@ -24,6 +26,7 @@
         }
     }
 
+
     .logo-anchor {
         width: 290px;
 
@@ -31,6 +34,7 @@
             width: 290px;
         }
     }
+
 
 
 
@@ -102,6 +106,7 @@
             text-align: left;
 
             img {
+
                 width: 30px;
                 margin-left: 80px;
             }
@@ -114,6 +119,7 @@
                 width: 290px;
             }
         }
+
 
 
 
@@ -176,7 +182,9 @@
         width: 100%;
         position: relative;
         background-color: white;
+
         gap: 10px;
+
 
 
         &>label {
@@ -195,7 +203,9 @@
             &>li {
                 font-size: 8px;
                 margin-left: 100px;
+
                 color: black;
+
 
                 &:hover {
                     background-color: $magenta;
@@ -211,7 +221,9 @@
                 }
 
                 &>a {
+
                     color: black;
+
                     background-color: white;
                     font-size: xx-large;
                 }

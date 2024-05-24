@@ -16,6 +16,9 @@ const port = 3000;
 
 // Requirements: routes
 const userRoutes = require("./routes/user.routes");
+
+const contactRoutes = require("./routes/contact.routes")
+
 const passport = require("passport");
 
 // Middlewares
@@ -71,6 +74,7 @@ app.get('/protected', isLoggedIn, (req, res) => {
 
 /* ----- API ROUTES ----- */
 app.use('/api/user', userRoutes);
+app.use('/api/contact', contactRoutes);
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
