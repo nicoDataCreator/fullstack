@@ -1,12 +1,21 @@
 const { Pool } = require("pg");
+require('dotenv').config();
+
+// prueba
+
+const poolHost = (`${process.env.poolHost}`);
+const poolUser = (`${process.env.poolUser}`);
+const poolDatabase = (`${process.env.poolDatabase}`);
+const poolPassword = (`${process.env.poolPassword}`);
+
 
 const pool = new Pool({
-    host: "dpg-cp5l3ra1hbls73fhevj0-a.frankfurt-postgres.render.com",
+    host: poolHost,
     ssl: true,
     port: 5432,
-    user: "beyond_education_user",
-    database: "beyond_education",
-    password: "hOs40vt17OJo50ZDXYzQ9QEJrN982xzb"
+    user: poolUser,
+    database: poolDatabase,
+    password: poolPassword
  });
 
 pool.connect(function (err) {
