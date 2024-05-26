@@ -18,9 +18,12 @@ const app = express();
 const port = 3000;
 
 // Requirements: routes
-const userRoutes = require("./routes/user.routes");
 
 const contactRoutes = require("./routes/contact.routes");
+const newslettertRoutes = require("./routes/newsletter.routes");
+const signupRoutes = require("./routes/signup.routes.js");
+const loginRoutes = require("./routes/login.routes.js");
+const clientRoutes = require("./routes/infoClient.routes.js");
 
 const passport = require("passport");
 
@@ -80,8 +83,12 @@ app.get("/protected", isLoggedIn, (req, res) => {
 });
 
 /* ----- API ROUTES ----- */
-app.use("/api/user", userRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/newsletter", newslettertRoutes);
+app.use("/api/signup", signupRoutes);
+app.use("/api/login", loginRoutes);
+app.use("/api/user", clientRoutes);
+
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);

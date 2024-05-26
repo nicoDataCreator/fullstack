@@ -1,7 +1,7 @@
-const user = require('../models/user.model');
+const user = require('../models/infoClient.model');
 
 // Create a new user
-const createUser = async (req, res) => {
+const createClient = async (req, res) => {
     const newUser = req.body; // {nombre, apellidos, fecha_nac, dni, nacionalidad, domicilio, ciudad, provincia, id_pais_origen, cp, telefono, email, colegio, curso, id_servicio, id_pais_destino}
     const response = await user.createUser(newUser);
     res.status(201).json({
@@ -10,6 +10,15 @@ const createUser = async (req, res) => {
     });
 }
 
+const getClients = async (req, res) => { }
+
+const updateClient = async (req, res) => { }
+
+const deleteClient = async (req, res) => { }
+
 module.exports = {
-    createUser,
+    createClient,
+    getClients,
+    updateClient,
+    deleteClient
 };  
