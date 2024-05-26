@@ -1,0 +1,219 @@
+@import '../utils/variables.scss';
+
+.section-form-dashboard {
+    background-color: $gris-formulario-fondos;
+    padding: 15px 30px;
+    width: 100vw;
+
+    .encabezado-dashboard {
+        font-size: 1rem;
+        padding-bottom: 35px;
+        color: $magenta;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        margin-top: 10px;
+    }
+
+
+    .container-form-dashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+
+        h2 {
+            font-size: 2.2rem;
+
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .cursiva {
+            font-family: 'Nothing You Could Do', cursive;
+        }
+
+        .form-one-dashboard {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .celdas-dashboard {
+                display: flex;
+                flex-direction: column;
+                font-size: 0.79rem;
+                width: 100%;
+                margin-bottom: 15px;
+
+                label {
+                    .required {
+                        color: red;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+
+            }
+
+
+           select {
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: medium;
+            }
+
+            .recomendacion {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: medium;
+            }
+
+            .conocido {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: medium;
+            }
+
+            .celdas-dashboard-facturacion {
+                display: flex;
+                flex-direction: column;
+                justify-content: left;
+                font-size: 0.79rem;
+                width: 100%;
+                margin-top: 20px;
+
+                label {
+                    .required {
+                        color: red;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+
+                .checkbox-autorizacion {
+                    display: flex;
+                    gap: 10px;
+                    font-size: 0.8rem;
+                    margin: 0 auto;
+                    align-items: flex-start;
+                    width: 48%;
+                    height: 15px;
+
+
+                    .input-checkbox {
+                        margin-top: 5px;
+                    }
+                }
+
+            }
+
+            p {
+                width: 100%;
+                font-size: 0.9rem;
+                margin: 10px 0 0;
+            }
+
+            .checkbox-container {
+                display: flex;
+                gap: 10px;
+                font-size: 0.8rem;
+                margin: 0 auto;
+                align-items: flex-start;
+                width: 48%;
+
+
+                .input-checkbox {
+                    margin-top: 5px;
+                }
+            }
+
+            .enviar {
+                width: 100%;
+                height: 40px;
+                margin-top: 20px;
+                color: $magenta;
+                font-size: large;
+                background-color: $magenta;
+                color: $blanco;
+                border-radius: 20px;
+            }
+        }
+
+        .text-area {
+            width: 100%;
+            height: 70px;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+
+        .selector {
+
+            width: 100%;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9rem;
+
+
+            .select-box {
+                width: 100%;
+                padding: 10px;
+                border-radius: 3px;
+                padding-top: 15px;
+            }
+        }
+
+    }
+}
+
+@media (min-width: 700px) {
+    .container-form-dashboard {
+        width: 80%;
+        margin: 0 auto;
+        padding: 25px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .container-form-dashboard {
+        width: 70%;
+        padding: 25px;
+
+        .enviar {
+            width: 100%;
+            height: 60px;
+            margin-top: 20px;
+            color: $magenta;
+            font-size: large;
+            background-color: $magenta;
+            color: $blanco;
+            border-radius: 20px;
+        }
+
+    }
+
+
+}

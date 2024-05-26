@@ -94,7 +94,7 @@ const Contact = () => {
             <input type="checkbox" className="input-checkbox" name="terminos" required />
             <label>Acepto términos y condiciones de la política de privacidad <span className="required">*</span>.</label>
           </div>
-          <input type="submit" value="Enviar" />
+          <input className="enviar" type="submit" value="Enviar" />
         </form>
       </div>
 
