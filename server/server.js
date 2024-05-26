@@ -23,7 +23,7 @@ const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
-const clientRoutes = require("./routes/infoClient.routes.js");
+const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
 
@@ -70,7 +70,7 @@ app.get(
   })
 );
 
-// http://localhost:3000/auth/failure
+// http://localhost:3000/auth/failure 
 // Redirects the user if the sign-in was un-successful
 app.get("/auth/failure", (req, res) => {
   res.send("Authentication failed");
