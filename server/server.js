@@ -18,7 +18,6 @@ const app = express();
 const port = 3000;
 
 // Requirements: routes
-
 const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
