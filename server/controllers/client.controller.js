@@ -3,12 +3,16 @@ const user = require('../models/client.model');
 // Create a new client (segundo formulario)
 const createClient = async (req, res) => {
     const client = req.body; // { nombre, apellidos, fecha_nac, dni, nacionalidad, domicilio, ciudad, provincia, id_pais_origen, cp, telefono, email, colegio, curso, id_servicio, id_pais_destino }
-    const response = await user.createClient(client);
-    res.status(201).json({
-        "user_created": response,
-        data: client
-    });
-}
+    try {
+        const response = await user.createClient(client);
+        res.status(201).json({
+            "client_created": response,
+            data: client
+        });
+    } catch (error) {
+        res.status(400).json({"error":error});
+    }
+};
 
 // Get client
 const getClient = async (req, res) => {
@@ -18,11 +22,11 @@ const getClient = async (req, res) => {
         "user_created": response,
         data: client
     });
-}
+};
 
-const updateClient = async (req, res) => { }
+const updateClient = async (req, res) => { };
 
-const deleteClient = async (req, res) => { }
+const deleteClient = async (req, res) => { };
 
 module.exports = {
     createClient,

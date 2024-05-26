@@ -1,17 +1,16 @@
 const signup = require('../models/signup.model');
-const regex = require('../utils/regex')
 
-const createUser = async(req, res) => {
-    let data;
+// Create a new client (segundo formulario)
+const createUser = async (req, res) => {
+    const client = req.body; // { usuario, contraseña }
     try {
-        if(regex.validateEmail(req.body.usuario) && regex.validatePassword(req.body.contraseña)){
-            data = await signup.createUser(req.body.usuario, req.body.contraseña);
-            res.status(201).json(data)
-        }else{
-            res.status(400).json({msg: 'Invalid email or password'});
-        }  
+        const response = await signup.createUser(client);
+        res.status(201).json({
+            "user_created": response,
+            data: client
+        });
     } catch (error) {
-        res.status(400).json({"error":error})
+        res.status(400).json({"error":error});
     }
 };
 

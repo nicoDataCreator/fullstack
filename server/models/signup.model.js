@@ -1,17 +1,18 @@
 const pool = require("../config/db_pgsql.js"); // Conexion a la BD
-const queries = require("../sql_queries/client.queries.js"); // Queries SQL
+const queries = require("../sql_queries/signup.queries.js"); // Queries SQL
 
 // AÑADIR CAMPO LOGGED A (TABLA log_in)
-const createUser = async(usuario, contraseña, logged=true) => {
+const createUser = async(user) => {
+    const { usuario, contraseña } = user;
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(queries.createClient, [
+        const data = await client.query(queries.createUser, [
             usuario,
-            contraseña,
-            logged
+            contraseña
         ]);
         result = data.rowCount
+        console.log(result);
     }catch(err){
         console.log(err);
         throw(err);

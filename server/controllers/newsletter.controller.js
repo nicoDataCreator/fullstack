@@ -1,10 +1,21 @@
-/* const subscriber = require('../models/newsletter.model'); */
+const subscriber = require('../models/newsletter.model');
+const regex = require('../utils/regex')
 
-// Create a new contact
-const createSubscriber = async (req, res) => {
-    const newSubscriber = req.body;
-    res.status(200).send(newSubscriber);
-}
+// Create a new subscriber
+const createSubscriber = async(req, res) => {
+    let data;
+    try {
+        if(regex.validateEmail(req.body.email)){
+
+            data = await subscriber.createSubscriber(req.body.email);
+            res.status(201).json(data);
+        }else{
+            res.status(400).json({msg: 'Invalid email'});
+        }  
+    } catch (error) {
+        res.status(400).json({"error":error});
+    }
+};
 
 // Read contact
 const getSubscribers = async (req, res) => {
