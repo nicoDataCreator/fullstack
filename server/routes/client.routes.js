@@ -2,14 +2,14 @@
 
 const express = require('express');
 const router = express.Router();
-const clientController = require('../controllers/infoClient.controller');
+const clientController = require('../controllers/client.controller');
 
 // http://localhost:3000/api/user
 // Create a new user in the "alumnos" table (guarda en la base de datos "alumnos" el perfil total del formulario de contrato)
 router.post('/', clientController.createClient);
 
 // El usuario ve el formulario de contrato vacío con los datos introducidos (con o sin datos)
-router.get('/', clientController.getClients);
+router.get('/:email?', clientController.getClient);
 
 // El usuario hace submit de sus datos introducidos en el formulario (siempre se va a hacer un put ya que solo se modifican los campos que inicialmente están vacíos)
 router.put('/', clientController.updateClient);

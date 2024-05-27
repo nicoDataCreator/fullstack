@@ -12,3 +12,4 @@ const Traductor = () => {
 };
 
 export default Traductor;
+

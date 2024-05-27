@@ -14,6 +14,6 @@ router.get('/:id?', newsletterController.getSubscribers);
 /* Al igual que en contact, no vamos a incluir un put porque no vamos a modificar los datos que el usuario nos da para suscribirse*/
 
 // El administrador puede eliminar usuarios que se han registrado en la newsletter desde su dashboard. ¡Ruta protegida!
-router.delete('/:id', newsletterController.deleteSubscriber);
+router.delete('/:email', newsletterController.deleteSubscriber);
 
 module.exports = router;
