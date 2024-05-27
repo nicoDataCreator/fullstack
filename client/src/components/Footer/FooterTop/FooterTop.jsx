@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"; 
-import beyondVerticalLogo from "../../../../src/assets/Beyond-Education_Vertical.png";
+import beyondVerticalLogo from "../../../../src/assets/beyond-vertical.png";
 
 const FooterTop = () => {
 
