@@ -1,43 +1,26 @@
-const pool = require("../config/db_pgsql");
-const queries = require("../sql_queries/newsletter.queries");
+const pool = require("../config/db_pgsql.js"); // Conexion a la BD
+const queries = require("../sql_queries/newsletter.queries.js"); // Queries SQL
 
-// Create a new subscriber
-const createSubscriber = async (subscriber) => {
-    const { email } = subscriber;
+// AÑADIR CAMPO LOGGED A (TABLA log_in)
+const createSubscriber = async(email) => {
     let client, result;
-    try {
-        client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createSubscriber, [ // add SQL query in file
-            email
+    try{
+        client = await pool.connect();
+        const data = await client.query(queries.createSubscriber, [
+            email,
         ]);
         result = data.rowCount;
-        console.log(result);
-    } catch (err) {
+    }catch(err){
         console.log(err);
-        throw err;
-    } finally {
+        throw(err);
+    }finally{
         client.release();
     }
-    return result;
-}
+    return result
+};
 
-// READ
-const getSubscriberByEmail = async (newSubscriber) => {
-}
-
-// READ
-const getAllSubscribers = async (newSubscriber) => {
-}
-
-// DELETE
-const deleteSubscriberByEmail = async (newSubscriber) => {
-}
-
-const subscriberModel = {
+const newsletter = {
     createSubscriber,
-    getSubscriberByEmail,
-    getAllSubscribers,
-    deleteSubscriberByEmail
-}
+};
 
-module.exports = subscriberModel;
+module.exports = newsletter;

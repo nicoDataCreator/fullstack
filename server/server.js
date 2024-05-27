@@ -4,6 +4,7 @@ process.on("warning", (e) => console.warn(e.stack));
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
+const helmet = require("helmet");
 require("../server/config/auth.js");
 // Para rutas del Server
 const path = require("path");
@@ -22,12 +23,13 @@ const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
-const clientRoutes = require("./routes/infoClient.routes.js");
+const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
 
 // Middlewares
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
@@ -69,7 +71,7 @@ app.get(
   })
 );
 
-// http://localhost:3000/auth/failure
+// http://localhost:3000/auth/failure 
 // Redirects the user if the sign-in was un-successful
 app.get("/auth/failure", (req, res) => {
   res.send("Authentication failed");
