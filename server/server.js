@@ -4,6 +4,7 @@ process.on("warning", (e) => console.warn(e.stack));
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
+const helmet = require("helmet");
 require("../server/config/auth.js");
 // Para rutas del Server
 const path = require("path");
@@ -28,6 +29,7 @@ const passport = require("passport");
 
 // Middlewares
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());

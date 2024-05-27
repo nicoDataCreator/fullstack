@@ -7,7 +7,7 @@ const clientQueries = {
     getClient: `
     SELECT *
     FROM alumnos
-    WHERE email =`
+    WHERE email = $1`
     // needs a (GET) select from (user that is logged in)
 };
 

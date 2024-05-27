@@ -37,11 +37,13 @@ const createClient = async (user) => {
 };
 
 // Get all clients (admin)
-const getClient = async () => {
+const getClient = async (email) => {
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.getClient)
+        const data = await client.query(queries.getClient, [
+            email
+        ]);
         result = data.rows;
     } catch (err) {
         console.log(err);

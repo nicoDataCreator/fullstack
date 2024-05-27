@@ -14,12 +14,12 @@ const createClient = async (req, res) => {
     }
 };
 
-// Get client
+// Get client by email
 const getClient = async (req, res) => {
     const client = req.body; // { email } se filtra por email para acceder a los datos previamente introducidos
-    const response = await user.createUser(client);
+    const response = await user.getClient(client);
     res.status(201).json({
-        "user_created": response,
+        "client_fetched": response,
         data: client
     });
 };
