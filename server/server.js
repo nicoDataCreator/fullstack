@@ -29,7 +29,21 @@ const passport = require("passport");
 
 // Middlewares
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://apis.google.com"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        frameSrc: ["'self'", "https://accounts.google.com"], // Permitir frames desde accounts.google.com
+        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        connectSrc: ["'self'", "https://accounts.google.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      },
+    },
+  })
+);
 app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
