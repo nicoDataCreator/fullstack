@@ -51,12 +51,6 @@ app.use(passport.session());
 app.use(express.static("client/dist"));
 app.use(express.static(path.join(__dirname, "/../client/dist")));
 
-// render try fix
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; frame-src 'self' https://chatybe.streamlit.app;");
-  next();
-});
-
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
