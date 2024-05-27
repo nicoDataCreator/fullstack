@@ -1,0 +1,21 @@
+@import '../utils/variables.scss';
+
+section {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 720px) {
+
+section {
+    width: 100%;
+    height: auto;
+}
+}
+
+@media only screen and (min-width: 1200px) {
+    section {
+        width: 100%;
+        height: auto;
+    }
+}
