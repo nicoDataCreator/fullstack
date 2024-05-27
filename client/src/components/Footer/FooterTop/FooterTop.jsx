@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"; 
+import beyondVerticalLogo from "../../../../src/assets/Beyond-Education_Vertical.png";
 
 const FooterTop = () => {
 
@@ -39,7 +40,7 @@ const FooterTop = () => {
   return (
     <div className="footer-top">
       <div className="logo-and-text">
-        <img src="https://beyondeducation.es/wp-content/uploads/2022/03/Beyond-Education_Vertical-color.png" alt="" className="logo-vertical" />
+        <img src={beyondVerticalLogo} alt="" className="logo-vertical" />
         <h4>El camino hacia tu mejor versión</h4>
       </div>
 
