@@ -1,18 +1,19 @@
-/* const contact = require('../models/contact.model'); */
+const contact = require('../models/contact.model');
 
 // Create a new contact
 const createContact = async (req, res) => {
-    const client = req.body;
+    console.log("req.body");
+    const newContact = req.body;
+    
+
     try {
-        const response = await user.createClient(client);
-        res.status(201).json({
-            "client_created": response,
-            data: client
-        });
+        const result = await contact.createContact(newContact);
+        res.status(201).json({ message: 'Contacto creado con éxito', result });
     } catch (error) {
-        res.status(400).json({"error":error});
+        console.log(req.body);
+        res.status(500).json({ error: 'Error al crear el contacto' });
     }
-};
+}
 
 // Read contact
 const getContacts = async (req, res) => {

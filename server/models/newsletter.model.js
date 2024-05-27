@@ -17,8 +17,17 @@ const createSubscriber = async(email) => {
     return result
 };
 
+const getSubscriberByEmail = async(email) => {};
+
+const getAllSubscribers = async() => {};
+
+const deleteSubscriberByEmail = async(email) => {};
+
 const newsletter = {
     createSubscriber,
+    getSubscriberByEmail,
+    getAllSubscribers,
+    deleteSubscriberByEmail
 };
 
 module.exports = newsletter;

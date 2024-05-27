@@ -24,6 +24,7 @@ export default Home; */
 import React, { useRef } from "react";
 import fotoprincipal from "../../../assets/estudiantessonriendo.jpg";
 import Contact from "../Contact/Contact";
+import Map from "../Map/Map.jsx"
 
 const Home = () => {
   const contactRef = useRef(null);
@@ -50,6 +51,7 @@ const Home = () => {
           <h3 className="segundafrase">elige la orientación que necesitas</h3>
         </article>
         <div ref={contactRef}>
+          <Map />
           <Contact />
         </div>
       </section>
