@@ -40,7 +40,7 @@ const FooterTop = () => {
   return (
     <div className="footer-top">
       <div className="logo-and-text">
-      <img src={beyondVerticalLogo} alt="" className="logo-vertical" />
+        <img src={beyondVerticalLogo} alt="" className="logo-vertical" />
         <h4>El camino hacia tu mejor versión</h4>
       </div>
 
