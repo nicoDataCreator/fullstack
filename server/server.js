@@ -21,11 +21,11 @@ const isLoggedIn = (req, res, next) => {
 const app = express();
 const port = 3000;
 
-app.use(express.urlencoded());
-/* app.use(bodyParser.urlencoded({
+/* app.use(express.urlencoded()); */
+app.use(bodyParser.urlencoded({
   extended: true
 }))
-app.use(bodyParser.json()); */
+app.use(bodyParser.json());
 
 // Requirements: routes
 const contactRoutes = require("./routes/contact.routes");
