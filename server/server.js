@@ -90,7 +90,6 @@ app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/user", clientRoutes);
 
-
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
