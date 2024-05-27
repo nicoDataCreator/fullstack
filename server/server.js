@@ -18,7 +18,6 @@ const app = express();
 const port = 3000;
 
 // Requirements: routes
-
 const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
@@ -88,7 +87,6 @@ app.use("/api/newsletter", newslettertRoutes);
 app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/user", clientRoutes);
-
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);

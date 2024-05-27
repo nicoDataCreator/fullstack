@@ -1,19 +1,39 @@
-/* const subscriber = require('../models/newsletter.model'); */
+const subscriberModel = require('../models/newsletter.model');
 
 // Create a new contact
 const createSubscriber = async (req, res) => {
     const newSubscriber = req.body;
-    res.status(200).send(newSubscriber);
+    const response = await subscriberModel.createSubscriber(newSubscriber);
+    res.status(200).json({
+        "subscriber_created": response
+    }, {
+        message: "usuario creado"
+    });
 }
 
 // Read contact
 const getSubscribers = async (req, res) => {
-    res.status(200).send("Hola, estás en el get del formulario de newsletter!");
+    let subscribers = "";
+    if (req.body) {
+        subscribers = await subscriberModel.getSubscriberByEmail(req.body);
+    } else {
+        subscribers = await subscriberModel.getAllSubscribers();
+    }
+    res.status(200).json(subscribers);
 }
 
 // Delete contact
 const deleteSubscriber = async (req, res) => {
-    res.status(200).send("Hola, estás en el delete del formulario de newsletter!");
+    if (req.params.email) {
+        await subscriberModel.deleteSubscriberByEmail(req.params.email);
+        res.status(200).json({
+            "author_deleted": `${req.params.email}`
+        });
+    } else {
+        res.status(400), json({
+            "error": "No email, no delete"
+        });
+    }
 }
 
 module.exports = {
