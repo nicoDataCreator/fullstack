@@ -13,7 +13,7 @@ const createSubscriber = async(req, res) => {
             res.status(400).json({msg: 'Invalid email'});
         }  
     } catch (error) {
-        res.status(500).json({"error": error.message});
+        res.status(500).json({"error": error});
     }
 };
 

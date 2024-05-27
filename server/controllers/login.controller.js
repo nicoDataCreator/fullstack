@@ -1,30 +1,20 @@
-const findUserByEmail = require('../models/login.model');
-const bcrypt = require('bcrypt');
+const login = require('../models/login.model');
+const regex = require('../utils/regex')
 
 
-
-const loginUser = async (req, res) => {
-const { email, password } = req.body;
+// Create a new client (segundo formulario)
+const loginUser = async(req, res) => {
+    let data;
     try {
-        const user = await findUserByEmail(email);
-        if (user) {
-            // Comparar la contraseña ingresada con la contraseña almacenada en la base de datos usando bcrypt
-            const isMatch = await bcrypt.compare(password, user.password);
-            if (isMatch) {
-                req.login(user, (err) => {
-                    if (err) {
-                        return res.status(500).json({ error: err.message });
-                    }
-                    return res.status(200).json(user);
-                });
-            } else {
-                return res.status(401).json({ error: 'Invalid credentials' });
-            }
-        } else {
-            return res.status(404).json({ error: 'User not found' });
-        }
+        if(regex.validateEmail(req.body.email) && regex.validatePassword(req.body.password)){
+
+            data = await login.loginUser(req.body.id_alumno, req.body.email, req.body.password, req.body.log_in_status);
+            res.status(201).json(data); // user exists?
+        }else{
+            res.status(400).json({msg: 'Invalid email or password'});
+        }  
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(400).json({"error":error});
     }
 };
 
