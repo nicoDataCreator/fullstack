@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"; 
+import beyondVerticalLogo from "../../../../src/assets/beyond-vertical.png";
 
 const FooterTop = () => {
 
@@ -23,12 +24,12 @@ const FooterTop = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/api/newsletter', email, {
+      const response = await axios.post('http://localhost:3000/api/newsletter', { email }, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-      console.log('Success:', email);
+      console.log('Success:', response.data);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -39,7 +40,7 @@ const FooterTop = () => {
   return (
     <div className="footer-top">
       <div className="logo-and-text">
-        <img src="https://beyondeducation.es/wp-content/uploads/2022/03/Beyond-Education_Vertical-color.png" alt="" className="logo-vertical" />
+        <img src={beyondVerticalLogo} alt="" className="logo-vertical" />
         <h4>El camino hacia tu mejor versión</h4>
       </div>
 
