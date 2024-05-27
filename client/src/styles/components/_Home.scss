@@ -1,74 +1,188 @@
 @import '../utils/variables.scss';
 
-.home {
-    display: flex;
-    flex-direction: column;
 
-    .principal {
-        width: 100%;
-        margin-top: 20px;
+.home {
+    position: relative;
+    text-align: center;
+
+    .button-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        .principal {
+            width: 100%;
+            height: auto;
+        }
+
+
+        .pideinfo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .asesoramiento,
+            .subtitulo,
+            .botoninfo {
+                position: absolute;
+                color: white;
+                text-shadow: 1px 1px 2px black;
+
+                &.asesoramiento {
+                    top: 200px;
+                    left: 20px;
+                    transform: translate(0, 0);
+                    font-size: 16px;
+                    z-index: 2;
+                    font-family: "Lato", sans-serif;
+                }
+
+                &.subtitulo {
+                    top: 100px;
+                    left: 20px;
+                    transform: translate(0, -0);
+                    font-size: 18px;
+                    z-index: 2;
+                    font-family: 'Nothing You Could Do', cursive;
+                }
+
+                &.botoninfo {
+                    bottom: 0px;
+                    right: 100px;
+                    width: 200px;
+                    height: 30px;
+                    transform: translate(0, 0);
+                    background-color: $magenta;
+                    color: white;
+                    padding: 3px 20px;
+                    margin-bottom: 70px;
+                    text-decoration: none;
+                    border-radius: 7px;
+                    z-index: 2;
+                    font-size: 18px;
+                    font-family: 'Nothing You Could Do', cursive;
+                }
+
+            }
+
+        }
+
+
     }
 
     .textofondo {
-        background-color: $azul-tarjeta ;
+        position: relative;
+        background-color: $azul-tarjeta;
         width: 100%;
-        height: 250px;
+        height: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 40px;
+        z-index: 1;
 
-        .primerafrase {
-
-            color: rgb(255, 255, 255);
-
-            font-size: large;
-            font-family: 'Nothing You Could Do', cursive;
-        }
-
+        .primerafrase,
         .segundafrase {
-
-            color: rgb(255, 255, 255);
-
-            font-size: large;
+            margin: 10px 0;
             font-family: 'Nothing You Could Do', cursive;
+            color: white;
+            font-size: 24px;
         }
     }
 }
 
+
 @media only screen and (min-width: 720px) {
     .home {
-        display: flex;
-        flex-direction: column;
-        margin-top: 40px;
-
-        .principal {
-            width: 100%;
-        }
-
-        .textofondo {
-            background-color: $azul-tarjeta ;
-            width: 100%;
-            height: 200px;
+        position: relative;
+        text-align: center;
+    
+        .button-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 220px;
-
-            .primerafrase {
-
-                color: rgb(255, 255, 255);
-
-                font-size: xx-large;
-                font-family: 'Nothing You Could Do', cursive;
+    
+    
+            .principal {
+                width: 100%;
+                height: auto;
             }
-
+    
+    
+            .pideinfo {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+    
+                .asesoramiento,
+                .subtitulo,
+                .botoninfo {
+                    position: absolute;
+                    color: white;
+                    text-shadow: 1px 1px 2px black;
+    
+                    &.asesoramiento {
+                        top: 410px;
+                        left: 100px;
+                        transform: translate(0, 0);
+                        font-size: 24px;
+                        z-index: 2;
+                        font-family: "Lato", sans-serif;
+                    }
+    
+                    &.subtitulo {
+                        top: 200px;
+                        left: 20px;
+                        transform: translate(0, -0);
+                        font-size: 30px;
+                        z-index: 2;
+                        font-family: 'Nothing You Could Do', cursive;
+                    }
+    
+                    &.botoninfo {
+                        bottom: 80px;
+                        right: 290px;
+                        width: 250px;
+                        height: 50px;
+                        transform: translate(0, 0);
+                        background-color: $magenta;
+                        color: white;
+                        padding: 5px 20px;
+                        margin-bottom: 70px;
+                        text-decoration: none;
+                        border-radius: 7px;
+                        z-index: 2;
+                        font-size: 26px;
+                        font-family: 'Nothing You Could Do', cursive;
+                    }
+    
+                }
+    
+            }
+    
+    
+        }
+    
+        .textofondo {
+            position: relative;
+            background-color: $azul-tarjeta;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            z-index: 1;
+    
+            .primerafrase,
             .segundafrase {
-
-                color: rgb(255, 255, 255);
-
-                font-size: xx-large;
+                margin: 10px 0;
                 font-family: 'Nothing You Could Do', cursive;
+                color: white;
+                font-size: 28px;
             }
         }
     }
@@ -76,39 +190,93 @@
 
 @media only screen and (min-width: 1200px) {
     .home {
-        display: flex;
-        flex-direction: column;
-
-        margin-top: 40px;
-
-
-        .principal {
-            width: 100%;
-        }
-
-        .textofondo {
-            background-color: $azul-tarjeta ;
-            width: 100%;
-            height: 200px;
+        position: relative;
+        text-align: center;
+    
+        .button-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 350px;
-
-            .primerafrase {
-
-                color: rgb(255, 255, 255);
-
-                font-size: xx-large;
-                font-family: 'Nothing You Could Do', cursive;
+    
+    
+            .principal {
+                width: 100%;
+                height: auto;
             }
-
+    
+    
+            .pideinfo {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+    
+                .asesoramiento,
+                .subtitulo,
+                .botoninfo {
+                    position: absolute;
+                    color: white;
+                    text-shadow: 1px 1px 2px black;
+    
+                    &.asesoramiento {
+                        top: 700px;
+                        left: 500px;
+                        transform: translate(0, 0);
+                        font-size:50px;
+                        z-index: 2;
+                        font-family: "Lato", sans-serif;
+                    }
+    
+                    &.subtitulo {
+                        top: 450px;
+                        left: 120px;
+                        transform: translate(0, -0);
+                        font-size: 50px;
+                        z-index: 2;
+                        font-family: 'Nothing You Could Do', cursive;
+                    }
+    
+                    &.botoninfo {
+                        bottom: 730px;
+                        right: 850px;
+                        width: 450px;
+                        height: 70px;
+                        transform: translate(0, 0);
+                        background-color: $magenta;
+                        color: white;
+                        padding: 5px 20px;
+                        margin-bottom: 70px;
+                        text-decoration: none;
+                        border-radius: 7px;
+                        z-index: 2;
+                        font-size: 40px;
+                        font-family: 'Nothing You Could Do', cursive;
+                    }
+    
+                }
+    
+            }
+    
+    
+        }
+    
+        .textofondo {
+            position: relative;
+            background-color: $azul-tarjeta;
+            width: 100%;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+            z-index: 1;
+    
+            .primerafrase,
             .segundafrase {
-
-                color: rgb(255, 255, 255);
-
-                font-size: xx-large;
+                margin: 10px 0;
                 font-family: 'Nothing You Could Do', cursive;
+                color: white;
+                font-size: 40px;
             }
         }
     }
