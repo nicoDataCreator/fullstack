@@ -2,9 +2,17 @@
 
 // Create a new contact
 const createContact = async (req, res) => {
-    const newContact = req.body;
-    res.status(200).send(newContact);
-}
+    const client = req.body;
+    try {
+        const response = await user.createClient(client);
+        res.status(201).json({
+            "client_created": response,
+            data: client
+        });
+    } catch (error) {
+        res.status(400).json({"error":error});
+    }
+};
 
 // Read contact
 const getContacts = async (req, res) => {
