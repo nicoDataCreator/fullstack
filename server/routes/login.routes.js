@@ -1,5 +1,3 @@
-// RUTAS ADMIN & USER - TABLA LOGIN
-
 const router = require("express").Router();
 const loginController = require('../controllers/login.controller');
 
