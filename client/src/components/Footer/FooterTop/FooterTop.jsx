@@ -23,12 +23,12 @@ const FooterTop = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/api/newsletter', email, {
+      const response = await axios.post('http://localhost:3000/api/newsletter', { email }, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-      console.log('Success:', email);
+      console.log('Success:', response.data);
     } catch (error) {
       console.error('Error:', error);
     }

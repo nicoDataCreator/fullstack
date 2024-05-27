@@ -9,7 +9,10 @@ require("../server/config/auth.js");
 // Para rutas del Server
 const path = require("path");
 require("dotenv").config();
+const bodyParser = require('body-parser');
 //
+
+
 
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
@@ -17,6 +20,12 @@ const isLoggedIn = (req, res, next) => {
 
 const app = express();
 const port = 3000;
+
+app.use(express.urlencoded());
+/* app.use(bodyParser.urlencoded({
+  extended: true
+}))
+app.use(bodyParser.json()); */
 
 // Requirements: routes
 const contactRoutes = require("./routes/contact.routes");
@@ -89,6 +98,7 @@ app.use("/api/newsletter", newslettertRoutes);
 app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/user", clientRoutes);
+
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);

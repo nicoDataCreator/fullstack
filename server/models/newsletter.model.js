@@ -6,9 +6,7 @@ const createSubscriber = async(email) => {
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(queries.createSubscriber, [
-            email,
-        ]);
+        const data = await client.query(queries.createSubscriber, [email]);
         result = data.rowCount;
     }catch(err){
         console.log(err);
