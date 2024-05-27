@@ -87,8 +87,8 @@
         .segundafrase {
             margin: 10px 0;
             font-family: 'Nothing You Could Do', cursive;
-            color: black;
-            font-size: 28px;
+            color: white;
+            font-size: 24px;
         }
     }
 }
@@ -143,10 +143,10 @@
                     }
     
                     &.botoninfo {
-                        bottom: 150px;
+                        bottom: 80px;
                         right: 290px;
                         width: 250px;
-                        height: 40px;
+                        height: 50px;
                         transform: translate(0, 0);
                         background-color: $magenta;
                         color: white;
@@ -181,7 +181,7 @@
             .segundafrase {
                 margin: 10px 0;
                 font-family: 'Nothing You Could Do', cursive;
-                color: black;
+                color: white;
                 font-size: 28px;
             }
         }
@@ -275,7 +275,7 @@
             .segundafrase {
                 margin: 10px 0;
                 font-family: 'Nothing You Could Do', cursive;
-                color: black;
+                color: white;
                 font-size: 40px;
             }
         }

@@ -21,7 +21,7 @@ const Login = () => {
               <label htmlFor="">Password
                 <span className="required">*</span>:
               </label>
-              <input type="text" placeholder="Password" />
+              <input type="password" placeholder="Password" />
             </article>
             <button className="botonsubmit" type="submit" >Submit</button>
             <button className="button-google-container">
