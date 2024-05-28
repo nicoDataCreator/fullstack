@@ -32,6 +32,7 @@ const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
+const logoutRoutes= require("./routes/logout.routes.js")
 const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
@@ -63,6 +64,7 @@ app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(session({ secret: 'your-secret-key', resave: false, saveUninitialized: true }));
 
 /* ----- WEB ROUTES ----- */
 // http://localhost:3000/
@@ -117,6 +119,7 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/newsletter", newslettertRoutes);
 app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
+app.use("/api/logout", logoutRoutes);
 app.use("/api/user", clientRoutes);
 
 const server = app.listen(port, () => {

@@ -1,15 +1,15 @@
 @import '../utils/variables.scss';
 
 .section-form {
-
+    margin-top: 15px;
     background-color: $gris-formulario-fondos;
 
-  
-  
+
+
 
     .container-form {
         padding: 55px 25px;
-     
+
 
         .cormorand {
 
@@ -50,10 +50,11 @@
                     border: 1px solid black;
                     border-radius: 4px;
                 }
+
                 .error {
                     color: red;
-                 
-                  }
+
+                }
             }
 
             p {
@@ -96,7 +97,7 @@
             font-size: 0.9rem;
 
 
-            .select-box{
+            .select-box {
 
                 width: 100%;
                 padding: 10px;
@@ -107,7 +108,7 @@
         .enviar {
             width: 100%;
             height: 40px;
-            margin-top:20px;
+            margin-top: 20px;
             font-size: large;
             background-color: $magenta;
             color: $blanco;
@@ -128,7 +129,7 @@
 @media (min-width: 1200px) {
     .container-form {
         width: 70%;
-   
+
     }
 
 
