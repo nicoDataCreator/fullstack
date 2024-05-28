@@ -13,7 +13,7 @@ const clientQueries = {
     VALUES ($20,$21,$22,$23,$24)
     `,
     createDatosFacturacion:
-    `INSERT INTO datos_facturacion (profesion/empresa, nombre, relacion_est,email,telefono,dni)
+    `INSERT INTO datos_facturacion (nombre, apellidos,dni,domicilio,ciudad,provincia,pais,cp,telefono,email)
     VALUES ($25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39)
     )
     `
