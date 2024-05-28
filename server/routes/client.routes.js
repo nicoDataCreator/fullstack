@@ -1,12 +1,15 @@
 // RUTAS INFOCLIENT - TABLA ALUMNOS
 
-const express = require('express');
-const router = express.Router();
+const router = require("express").Router();
 const clientController = require('../controllers/client.controller');
 
 // http://localhost:3000/api/user
 // Create a new user in the "alumnos" table (guarda en la base de datos "alumnos" el perfil total del formulario de contrato)
 router.post('/', clientController.createClient);
+/* router.post('/', clientController.createRepresentante1);
+router.post('/', clientController.createRepresentante2);
+router.post('/', clientController.createServicios);
+router.post('/', clientController.createDatosFacturacion); */
 
 // El usuario ve el formulario de contrato vacío con los datos introducidos (con o sin datos)
 router.get('/:email?', clientController.getClient);
