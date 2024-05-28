@@ -9,7 +9,7 @@ const loginUser = async(req, res) => {
         if(regex.validateEmail(req.body.email) && regex.validatePassword(req.body.password)){
 
             data = await login.loginUser(req.body.id_alumno, req.body.email, req.body.password, req.body.log_in_status);
-            res.status(201).json(data); // user exists?
+            res.status(201).json(data);
         }else{
             res.status(400).json({msg: 'Invalid email or password'});
         }  
