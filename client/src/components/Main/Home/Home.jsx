@@ -27,11 +27,11 @@ import Contact from "../Contact/Contact";
 import Map from "../Map/Map.jsx"
 
 const Home = () => {
-  const contactRef = useRef(null);
+  const contactDivRef = useRef(null);
 
   const handleScrollToContact = () => {
-    if (contactRef.current) {
-      window.scrollTo({ top: contactRef.current.offsetTop, behavior: "smooth" });
+    if (contactDivRef.current) {
+      window.scrollTo({ top: contactDivRef.current.offsetTop, behavior: "smooth" });
     }
   };
 
@@ -50,9 +50,11 @@ const Home = () => {
           <h3 className="primerafrase">En Beyond education te acompañamos en cada decisión que tomes,</h3>
           <h3 className="segundafrase">elige la orientación que necesitas</h3>
         </article>
-        <div ref={contactRef}>
+        <div >
           <Map />
+          <div ref={contactDivRef}>
           <Contact />
+        </div>
         </div>
       </section>
     </>

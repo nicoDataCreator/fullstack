@@ -8,8 +8,6 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
-    
-    
     padding-right: 20px;
     z-index: 1000;
     
@@ -61,6 +59,8 @@
         background-color: $magenta;
         width: 100vw;
         z-index: 1000;
+        margin-top:5px;
+
 
         &>li {
             margin: 2px 15px;
@@ -89,7 +89,28 @@
             }
         }
     }
-}
+    .perfil-btn {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 20px;
+      }
+
+      .perfil-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .letrasnav {
+        padding: 7px;
+      }
+
+      .letras-nav-icon {
+        margin-bottom:  2px;
+      }
+    }
+
+
 
 @media only screen and (min-width: 720px) {
     .nav {
@@ -175,7 +196,29 @@
         }
     }
 
-}
+    .perfil-btn {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 20px;
+      }
+
+      .perfil-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .letrasnav {
+        padding: 7px;
+      }
+
+      .letras-nav-icon {
+        margin-bottom:  2px;
+      }
+    }
+
+
+
 
 @media only screen and (min-width: 1200px) {
 
@@ -200,7 +243,7 @@
             align-items: right;
             background-color: white;
             
-
+           
 
             &>li {
                 font-size: 8px;
@@ -225,9 +268,45 @@
                     color: black;
                     background-color: white;
                     font-size: x-large;
+                    padding-bottom: 15px;
                 }
+
+                
+            }
+
+        }
+
+        .logo-anchor {
+            width: 290px;
+           
+    
+            &>.logo {
+                width: 290px;
+                margin-top:5px;
             }
         }
-    }
+        .perfil-btn {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 20px;
+            padding-bottom: 20px;
+          }
+    
+          .perfil-icon {
+            width: 60px;
+            height: 60px;
+          }
 
-}
+          .letrasnav {
+            padding: 7px;
+          }
+
+          .letras-nav-icon {
+            padding:0px;
+          }
+        }
+    
+        
+      }
+    
