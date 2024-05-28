@@ -19,6 +19,8 @@ const isLoggedIn = (req, res, next) => {
 const app = express();
 const port = 3000;
 
+// añadir condicional
+
 /* app.use(express.urlencoded()); */
 app.use(
   bodyParser.urlencoded({
