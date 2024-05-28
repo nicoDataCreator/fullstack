@@ -8,9 +8,13 @@ const loginUser = async (id_alumno, email, password, log_in_status) => {
         client = await pool.connect();
 
         // if this returns true, we can move on and update the user's log_in_status
+        console.log(`Executing query: ${queries.userExists}`);
+        console.log(`With id_alumno: ${id_alumno}`);
         const userExists = await client.query(queries.userExists, [email]);
 
         if (userExists.rows.length === 0) {
+            console.log(`Executing query: ${queries.loginUser}`);
+            console.log(`With id_alumno: ${id_alumno}`);
             const data = await client.query(queries.loginUser, [
                 id_alumno,
                 email,
