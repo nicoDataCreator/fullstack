@@ -37,7 +37,8 @@ const clientRoutes = require("./routes/client.routes.js");
 const passport = require("passport");
 
 // Middlewares
-app.use(cors());
+app.use(cors({origin: ['https://beyond-education.onrender.com', 'http://localhost:3000', 'http://localhost:8080'],
+}));
 app.use(
   helmet({
     contentSecurityPolicy: {
