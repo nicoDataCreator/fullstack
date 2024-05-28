@@ -45,8 +45,7 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://apis.google.com"],
         styleSrc: ["'self'", "https://fonts.googleapis.com"],
-        frameSrc: ["'self'", "https://accounts.google.com"], // Permitir frames desde accounts.google.com
-        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
         connectSrc: [
           "'self'",
           "http://localhost:3000",
