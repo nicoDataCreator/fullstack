@@ -3,12 +3,12 @@ const user = require('../models/client.model');
 // Create a new client (segundo formulario)
 const createClient = async (req, res) => {
     console.log("req.body");
-    const client = req.body; // { nombre, apellidos, fecha_nac, dni, nacionalidad, domicilio, ciudad, provincia, id_pais_origen, cp, telefono, email, colegio, curso, id_servicio, id_pais_destino }
+    const client = req.body;
     try {
         const result = await user.createClient(client);
         res.status(201).json({ message: 'Cliente creado con éxito', result });
     } catch (error) {
-        res.status(500).json({ error: 'Error al crear el cliente' });
+        res.status(500).json({ error: 'Error al crear cliente' });
     }
 };
 
