@@ -27,8 +27,7 @@ const Nav = () => {
         <li><Link className="letrasnav" to='/'>Home</Link></li>
         <li><Link className="letrasnav" to='/contact'>Contact</Link></li>
         <li><Link className="letrasnav" to='/login'>Login</Link></li>
-        <li><Link className="letrasnav" to='/signup'>Signup</Link></li>
-        <li><Link className="letrasnav" to='/dashboard'>Dashboard</Link></li>
+        <li><Link className="letrasnav" to='/dashboard/user'>Dashboard</Link></li>
       </ul>
     </nav>
   );
