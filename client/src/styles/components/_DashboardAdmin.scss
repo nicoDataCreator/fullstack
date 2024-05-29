@@ -1,0 +1,158 @@
+@import '../utils/variables.scss';
+
+.datos-admin-stream {
+    width: 100vw;
+    height: 500px;
+    margin-top: 15px;
+
+    .stream-admin {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.card {
+    background-color: $gris-formulario-fondos;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .card button {
+    margin:15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:$magenta;
+  }
+  
+
+.admin {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 25px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    background-color: $gris-formulario-fondos;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .contenedor-admin {
+      width: 100%;
+      display:flex;
+      flex-direction: column;
+      justify-content: left;
+      text-align: left;
+    }
+}
+
+@media (min-width: 700px) {
+
+.card {
+    background-color: $gris-formulario-fondos;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .card button {
+    margin:15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:$magenta;
+  }
+  
+
+.admin {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 25px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    background-color: $gris-formulario-fondos;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .contenedor-admin {
+      width: 60%;
+      display:flex;
+      flex-direction: column;
+      justify-content: left;
+      text-align: left;
+    }
+}
+}
+
+@media (min-width: 1200px) {
+
+
+.card {
+    background-color: $gris-formulario-fondos;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .card button {
+    margin:15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:$magenta;
+  }
+  
+
+.admin {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 25px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    background-color: $gris-formulario-fondos;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+}

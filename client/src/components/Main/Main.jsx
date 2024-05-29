@@ -5,9 +5,11 @@ import Contact from "./Contact/Contact";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Dashboard from "./Dashboard/Dashboard";
+
 import DashboardAdmin from "./DashboardAdmin/DashboardAdmin";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import { UserLogged } from "../../context/UserLogged";
+
 
 const Main = () => {
 
@@ -28,6 +30,7 @@ const { user } = useContext(UserLogged);
           <ProtectedRoute isAllowed={!!user && user.roles.includes('admin')} >
             <DashboardAdmin />
           </ProtectedRoute>} />
+
         <Route path="/*" element={<Navigate to={"/"} />} />
       </Routes>
     </main>
