@@ -38,8 +38,8 @@ const clientRoutes = require("./routes/client.routes.js");
 const passport = require("passport");
 
 // Middlewares
-app.use(cors({origin: ['https://beyond-education.onrender.com', 'http://localhost:3000', 'http://localhost:8080'],
-}));
+app.use(cors());
+
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -47,7 +47,7 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://apis.google.com"],
         styleSrc: ["'self'", "https://fonts.googleapis.com"],
-        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app", "https://destinomap.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
         connectSrc: [
           "'self'",
           "http://localhost:3000",
@@ -60,6 +60,7 @@ app.use(
     },
   })
 );
+
 app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
