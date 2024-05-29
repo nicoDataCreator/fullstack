@@ -8,8 +8,6 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
-    
-    
     padding-right: 20px;
     z-index: 1000;
     
@@ -61,6 +59,7 @@
         background-color: $magenta;
         width: 100vw;
         z-index: 1000;
+        margin-top:5px;
 
 
         &>li {
@@ -271,6 +270,19 @@
                     font-size: x-large;
                     padding-bottom: 15px;
                 }
+
+                
+            }
+
+        }
+
+        .logo-anchor {
+            width: 290px;
+           
+    
+            &>.logo {
+                width: 290px;
+                margin-top:5px;
             }
         }
         .perfil-btn {
