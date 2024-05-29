@@ -6,6 +6,8 @@ const session = require("express-session");
 const cors = require("cors");
 const helmet = require("helmet");
 require("../server/config/auth.js");
+require('dotenv').config();
+
 // Para rutas del Server
 const path = require("path");
 require("dotenv").config();
@@ -17,7 +19,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 const app = express();
-const port = 3000;
+const port = process.env.poolPort || 5000;
 
 /* app.use(express.urlencoded()); */
 app.use(

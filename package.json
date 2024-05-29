@@ -4,9 +4,9 @@
   "description": "Root Folder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-render": "concurrently \"cd client && npm i && npm run build\" \"cd server && npm ci && npm run server\"",
-    "dev": "concurrently \"cd client && npm run build\" \"cd server &&  npm run server\""
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run build && npm run start"
   },
   "repository": {
     "type": "git",
