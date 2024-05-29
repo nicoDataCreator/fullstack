@@ -27,14 +27,6 @@ function App() {
 
     
     */
-  const updateUser = (newUser) => {
-    setUser(newUser)
-  };
-
-  const UserData = {
-    user,
-    updateUser
-  }
 
 
 
@@ -42,10 +34,8 @@ function App() {
     <>
 
       <BrowserRouter>
-        <UserLogged.Provider value={UserData}>
           <Header />
           <Main />
-        </UserLogged.Provider>
         <Footer />
       </BrowserRouter>
 
