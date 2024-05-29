@@ -88,7 +88,7 @@ const createClient = async (client) => {
   }
 };
 
-// Get all clients (admin)
+// Get  clients by email (admin)
 const getClient = async (email) => {
   let client, result;
   try {
@@ -104,9 +104,47 @@ const getClient = async (email) => {
   return result;
 };
 
+// Get all clients (admin)
+const getAllClients = async () => {
+  let client, result;
+  try {
+    client = await pool.connect();
+    const data = await client.query(queries.getAllClients);
+    result = data.rows;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } finally {
+    client.release();
+  }
+  return result;
+};
+
+
+// Delete  client by email (admin)
+const deleteClient = async (email) => {
+  let client, result;
+  try {
+    client = await pool.connect();
+    const data = await client.query(queries.deleteClient, [email]);
+    result = data.rows;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } finally {
+    client.release();
+  }
+  return result;
+};
+
+
+
+
 const users = {
   createClient,
   getClient,
+  getAllClients,
+  deleteClient
 };
 
 module.exports = users;
