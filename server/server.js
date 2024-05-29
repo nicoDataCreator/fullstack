@@ -19,7 +19,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 const app = express();
-const port = process.env.poolPort || 5000;
+const port = process.env.poolPort || 3000;
 
 /* app.use(express.urlencoded()); */
 app.use(
