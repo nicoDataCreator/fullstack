@@ -26,7 +26,7 @@ const Nav = () => {
     }
   }
 
-  const loginLogoutLink = user ? 'http://localhost:3000/api/logout' : '/login';
+  const loginLogoutLink = user ? '/api/logout' : '/login';
   const loginLogoutText = user ? 'Logout' : 'Login';
 
   return (
