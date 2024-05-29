@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from './Home/Home'
 import Contact from "./Contact/Contact";
@@ -7,30 +7,11 @@ import Signup from "./Signup/Signup";
 import Dashboard from "./Dashboard/Dashboard";
 import DashboardAdmin from "./DashboardAdmin/DashboardAdmin";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
+import { UserLogged } from "../../context/UserLogged";
 
 const Main = () => {
 
-  // let userExists = axios.get('ruta/api/user').queries.userExists;
-  // SELECT *
-  // FROM alumnos
-  // WHERE email = $1
-
-  // userIsAdmin = axios.get('ruta').queries.userIsAdmin
-  // SELECT *
-  // FROM alumnos 
-  // WHERE email = $1 AND rol = $2
-
-  const [user, setUser] = useState({
-    id: 1,
-    name: "Jhon",
-    roles: "admin"
-  });
-
-  /*   ({
-      id: 1,
-      name: "Jhon",
-      roles: ['admin']
-    }) */
+const { user } = useContext(UserLogged);
 
   return (
     <main className="main">
