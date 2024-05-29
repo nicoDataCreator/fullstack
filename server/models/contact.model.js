@@ -1,5 +1,5 @@
 const pool = require("../config/db_pgsql.js"); // Conexion a la BD
-const queries = require("../sql_queries/contact.queries.js"); 
+const queries = require("../sql_queries/contact.queries.js");
 
 const createContact = async (contact) => {
     

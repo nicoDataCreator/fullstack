@@ -1,34 +1,19 @@
 process.on("warning", (e) => console.warn(e.stack));
 
-// Requirements: express, pg
+// Requirements: express, express-session, cors, helmet, passport
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
 const helmet = require("helmet");
-require("../server/config/auth.js");
-// Para rutas del Server
+const passport = require("passport");
 const path = require("path");
+
+// DotEnv ?
 require("dotenv").config();
+
+// Requirements: body-parser, cookie-parser
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-// Use cookie-parser middleware to handle cookies
-
-const isLoggedIn = (req, res, next) => {
-  req.user ? next() : res.sendStatus(401);
-};
-
-const app = express();
-const port = 3000;
-app.use(cookieParser());
-
-/* app.use(express.urlencoded()); */
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-
-app.use(bodyParser.json());
 
 // Requirements: routes
 const contactRoutes = require("./routes/contact.routes");
@@ -37,20 +22,43 @@ const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
 const logoutRoutes = require("./routes/logout.routes.js")
 const clientRoutes = require("./routes/client.routes.js");
+const googleRoutes = require("./routes/google.routes.js");
 
-const passport = require("passport");
+// Requirements: Google auth
+require("../server/config/auth.js");
 
-// Middlewares
+
+const isLoggedIn = (req, res, next) => {
+  req.user ? next() : res.sendStatus(401);
+};
+
+// Para rutas del Server
+const app = express();
+const port = 3000;
+app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(cors());
+
+/* app.use(express.urlencoded()); */
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://apis.google.com"],
-        styleSrc: ["'self'", "https://fonts.googleapis.com"],
-        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app", "https://destinomap.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        scriptSrc: ["'self'",
+          "https://apis.google.com"],
+        styleSrc: ["'self'",
+          "https://fonts.googleapis.com"],
+        frameSrc: ["'self'",
+          "https://accounts.google.com",
+          "https://chatybe.streamlit.app",
+          "https://destinomap.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
         connectSrc: [
           "'self'",
           "http://localhost:3000",
@@ -58,7 +66,8 @@ app.use(
           "https://accounts.google.com",
           "https://www.google-analytics.com",
         ],
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        fontSrc: ["'self'",
+          "https://fonts.gstatic.com"],
       },
     },
   })
@@ -70,37 +79,32 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'your-secret-key', resave: false, saveUninitialized: true }));
 
-/* ----- WEB ROUTES ----- */
-// http://localhost:3000/
-// Home page
 // Serve static assets in production
 app.use(express.static("client/dist"));
 app.use(express.static(path.join(__dirname, "/../client/dist")));
 
-// http://localhost:3000/auth
-// Page shows a button with a link that redirects to '/auth/google'
-app.get("/auth", (req, res) => {
-  res.send('<a href="/auth/google">Authenticate with google</a>');
-});
+// API Routes
+app.use("/api/contact", contactRoutes);
+app.use("/api/newsletter", newslettertRoutes);
+app.use("/api/signup", signupRoutes);
+app.use("/api/login", loginRoutes);
+app.use("/api/logout", logoutRoutes);
+app.use("/api/user", clientRoutes);
+app.use("/api/authorize", googleRoutes);
 
 // http://localhost:3000/auth/google
 // Shows user selection through Google and allows Sign-up and Sign-in
-app.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["email", "profile"],
-  })
+app.get("/auth/google", passport.authenticate("google", {
+  scope: ["email", "profile"],
+})
 );
 
 // http://localhost:3000/google/callback
 // Handles whether Sign-in was successful or not to access the protected route
-app.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/protected",
-    failureRedirect: "/auth/failure",
-  })
-);
+app.get("/google/callback", passport.authenticate("google", {
+  successRedirect: "/protected",
+  failureRedirect: "/auth/failure",
+}));
 
 // http://localhost:3000/auth/failure
 // Redirects the user if the sign-in was un-successful
@@ -124,15 +128,6 @@ app.get("/protected", isLoggedIn, (req, res) => {
   res.cookie('user', userInfoString, { httpOnly: true, secure: true }).redirect("/");
   // devolver cookies
 });
-
-/* ----- API ROUTES ----- */
-app.use("/api/contact", contactRoutes);
-app.use("/api/newsletter", newslettertRoutes);
-app.use("/api/signup", signupRoutes);
-app.use("/api/login", loginRoutes);
-app.use("/api/logout", logoutRoutes);
-app.use("/api/user", clientRoutes);
-app.use("/api/authorize", googleRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
