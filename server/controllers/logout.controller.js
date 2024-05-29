@@ -3,7 +3,7 @@ const regex = require('../utils/regex')
 
 
 // Create a new client (segundo formulario)
-const loginUser = async(req, res) => {
+const logoutUser = async(req, res) => {
     let data;
     try {
         if(regex.validateEmail(req.body.email) && regex.validatePassword(req.body.password)){
@@ -23,7 +23,7 @@ const getUsers = async (req, res) => { }
 const deleteUser = async (req, res) => { }
 
 module.exports = {
-    loginUser,
+    logoutUser,
     getUsers,
     deleteUser
 }; 

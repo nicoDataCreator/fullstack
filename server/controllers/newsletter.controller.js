@@ -13,17 +13,17 @@ const createSubscriber = async(req, res) => {
             res.status(400).json({msg: 'Invalid email'});
         }  
     } catch (error) {
-        res.status(500).json({"error": error.message});
+        res.status(500).json({"error": error});
     }
 };
 
 // Read contact
 const getSubscribers = async (req, res) => {
     let subscribers = "";
-    if (req.body) {
-        subscribers = await subscriberModel.getSubscriberByEmail(req.body);
+    if (req.params) {
+        subscribers = await subscriber.getSubscriberByEmail(req.params);
     } else {
-        subscribers = await subscriberModel.getAllSubscribers();
+        subscribers = await subscriber.getAllSubscribers();
     }
     res.status(200).json(subscribers);
 }
@@ -31,7 +31,7 @@ const getSubscribers = async (req, res) => {
 // Delete contact
 const deleteSubscriber = async (req, res) => {
     if (req.params.email) {
-        await subscriberModel.deleteSubscriberByEmail(req.params.email);
+        await subscriber.deleteSubscriberByEmail(req.params.email);
         res.status(200).json({
             "author_deleted": `${req.params.email}`
         });
