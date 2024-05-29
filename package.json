@@ -6,7 +6,10 @@
   "scripts": {
     "start": "concurrently \"npm run client\" \"npm ci && npm run server\"",
     "server": "cd server && npm run dev",
-    "client": "cd client && npm run build && npm run start"
+    "client": "cd client && npm run build && npm run start",
+    "dev-render": "concurrently \"cd client && npm i && npm run build\" \"cd server && npm ci && npm run server\"",
+    "dev": "concurrently \"cd client && npm run build\" \"cd server &&  npm run server\""
+
   },
   "repository": {
     "type": "git",
