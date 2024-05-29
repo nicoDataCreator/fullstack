@@ -32,7 +32,7 @@ const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
-const logoutRoutes= require("./routes/logout.routes.js")
+const logoutRoutes = require("./routes/logout.routes.js")
 const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
@@ -73,10 +73,6 @@ app.use(session({ secret: 'your-secret-key', resave: false, saveUninitialized: t
 // Serve static assets in production
 app.use(express.static("client/dist"));
 app.use(express.static(path.join(__dirname, "/../client/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
-});
 
 // http://localhost:3000/auth
 // Page shows a button with a link that redirects to '/auth/google'
@@ -122,6 +118,10 @@ app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/user", clientRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
+});
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);

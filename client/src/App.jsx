@@ -19,13 +19,13 @@ function App() {
   // FROM alumnos 
   // WHERE email = $1 AND rol = $2
 
-  const [user, setUser] = useState({
+/*   const [user, setUser] = useState({
     id: 1, 
     name: "Jhon",
-    roles: "admin"  /* "user"  */
-  }
-/* null */
-  );
+    roles: "admin"
+  }); */
+
+  const [user, setUser] = useState(null);
 
   /*   ({
       id: 1,
