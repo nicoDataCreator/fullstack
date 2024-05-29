@@ -1,0 +1,104 @@
+@import '../utils/variables.scss';
+
+.section-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+
+    .container-signup {
+        padding: 55px 25px;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        background-color: $gris-formulario-fondos;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .signup {
+            font-family: 'Cormorant Garamond', Arial, Helvetica, sans-serif;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        h3 {
+            padding-bottom: 15px;
+            text-align: center;
+            font-family: 'Nothing You Could Do', cursive;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+
+            .user-signup,
+            .password-signup {
+                display: flex;
+                flex-direction: column;
+                font-size: 0.79rem;
+                width: 100%;
+
+                label {
+                    margin-bottom: 5px;
+
+                    .required {
+                        color: red;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+            }
+
+            .botonsubmit {
+                width: 100%;
+                height: 40px;
+                background-color: $magenta;
+                color:white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+
+            .boton-submit:hover {
+                background-color: $magenta;
+            }
+
+            .google-button-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: right;
+                margin-top: 20px;
+
+                .google-button {
+                    width: 100%;
+                    max-width: 300px;
+                    height: 40px;
+                    margin-left: 40px;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                }
+
+                .google-button:hover {
+                    background-color: $magenta;
+                }
+
+            }
+        }
+    }
+}

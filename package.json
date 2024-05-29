@@ -1,0 +1,24 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "Root Folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-render": "concurrently \"cd client && npm i && npm run build\" \"cd server && npm ci && npm run server\"",
+    "dev": "concurrently \"cd client && npm run build\" \"cd server &&  npm run server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicoDataDesafio/fullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicoDataDesafio/fullstack/issues"
+  },
+  "homepage": "https://github.com/NicoDataDesafio/fullstack#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

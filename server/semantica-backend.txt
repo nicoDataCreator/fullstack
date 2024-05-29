@@ -1,0 +1,35 @@
+ROUTES:
+    - admin.ROUTES
+        - admin.routes.contacto.js
+        - admin.routes.newsletter.js
+        - admin.routes.login.js
+    - user.ROUTES
+        - user.routes.contacto.js
+        - user.routes.newsletter.js
+        - user.routes.signup.login.js
+        - user.routes.login.login.js
+
+CONTROLLERS:
+    - admin.CONTROLLERS
+        - admin.controller.contacto.js
+        - admin.controller.newsletter.js
+        - admin.controller.login.js
+    user.CONTROLLERS
+        - user.controller.contacto.js
+        - user.controller.newsletter.js
+        - user.controller.signup.login.js
+        - user.controller.login.login.js
+
+MODELS:
+    - admin.MODELS
+        - admin.model.contacto.js
+        - admin.model.newsletter.js
+        - admin.model.login.js
+    user.MODELS
+        - user.model.contacto.js
+        - user.model.newsletter.js
+        - user.model.signup.login.js
+        - user.model.login.login.js
+
+(tipo-usuario).(carpeta-server).(tabla-bbdd).js
+admin.routes.formulario-contacto.js

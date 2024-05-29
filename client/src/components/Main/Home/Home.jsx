@@ -1,5 +1,6 @@
-import React from "react";
+/* import React from "react";
 import fotoprincipal from "../../../assets/estudiantessonriendo.jpg"
+import Contact from '../Contact/Contact'
 
 const Home = () => {
   return (
@@ -10,8 +11,57 @@ const Home = () => {
       <h3 className="primerafrase" >En Beyond education te acompañamos en cada decisión que tomes,</h3>
       <h3 className="segundafrase" >elige la orientación que necesitas</h3>
     </article>
+
+    <article>
+      <Contact/>
+    </article>
   </section>
   </>
 )};
 
+export default Home; */
+
+import React, { useRef } from "react";
+import fotoprincipal from "../../../assets/estudiantessonriendo.jpg";
+import Contact from "../Contact/Contact";
+import Map from "../Map/Map.jsx"
+
+const Home = () => {
+  const contactDivRef = useRef(null);
+
+  const handleScrollToContact = () => {
+    if (contactDivRef.current) {
+      window.scrollTo({ top: contactDivRef.current.offsetTop, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <>
+      <section className="home">
+        <article className="button-container">
+          <img className="principal" src={fotoprincipal} alt="Imagen Principal" />
+          <article className="pideinfo">
+          <h2 className="asesoramiento">Te asesoramos cómo alcanzar tus sueños estudiando.</h2>
+          <h3 className="subtitulo">Ayudamos a adolescentes y jóvenes para lograr el éxito del futuro que quieren.</h3>
+          <button className="botoninfo" onClick={handleScrollToContact}>Pide información</button>
+          </article>
+        </article>
+        <article className="textofondo">
+          <h3 className="primerafrase">En Beyond education te acompañamos en cada decisión que tomes,</h3>
+          <h3 className="segundafrase">elige la orientación que necesitas</h3>
+        </article>
+        <div >
+          <Map />
+          <div ref={contactDivRef}>
+          <Contact />
+        </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
 export default Home;
+
+
+

@@ -7,6 +7,8 @@ const poolPassword = (`${process.env.poolPassword}`);
 const poolPort = (`${process.env.poolPort}`);
 const poolDatabase = (`${process.env.poolDatabase}`);
 
+require('dotenv').config();
+
 
 const pool = new Pool({
     host: poolHost,
