@@ -1,4 +1,3 @@
-// RUTAS USUARIO - TABLA LOGIN
 const router = require("express").Router();
 const signupController = require('../controllers/signup.controller');
 

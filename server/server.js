@@ -1,16 +1,15 @@
 process.on("warning", (e) => console.warn(e.stack));
 
-// Requirements: express, pg
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
 const helmet = require("helmet");
 require("../server/config/auth.js");
-// Para rutas del Server
+
 const path = require("path");
 require("dotenv").config();
+require('./config/db_pgsql.js');
 const bodyParser = require("body-parser");
-//
 
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
@@ -19,15 +18,9 @@ const isLoggedIn = (req, res, next) => {
 const app = express();
 const port = 3000;
 
-/* app.use(express.urlencoded()); */
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-// Requirements: routes
 const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
@@ -58,14 +51,9 @@ app.use(session({ secret: 'your-secret-key', resave: false, saveUninitialized: t
 
 /* ----- WEB ROUTES ----- */
 // http://localhost:3000/
-// Home page
 // Serve static assets in production
 app.use(express.static("client/dist"));
 app.use(express.static(path.join(__dirname, "/../client/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
-});
 
 // http://localhost:3000/auth
 // Page shows a button with a link that redirects to '/auth/google'
@@ -105,12 +93,17 @@ app.get("/protected", isLoggedIn, (req, res) => {
 });
 
 /* ----- API ROUTES ----- */
+app.use('/api/test', (req, res) => { res.status(200).json({ status: "connected" }) })
 app.use("/api/contact", contactRoutes);
 app.use("/api/newsletter", newslettertRoutes);
 app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/user", clientRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
+});
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
