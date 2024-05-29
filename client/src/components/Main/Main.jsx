@@ -5,6 +5,7 @@ import Contact from "./Contact/Contact";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Dashboard from "./Dashboard/Dashboard";
+import DashboardAdmin from "./DashboardAdmin/DashboardAdmin"
 
 
 const Main = () => {
@@ -16,6 +17,7 @@ const Main = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard/user" element={<Dashboard/>}/>
+        <Route path="/dashboard/admin" element={<DashboardAdmin/>}/>
         <Route path="/*" element={<Navigate to={"/"} />} />
       </Routes>
     </main>

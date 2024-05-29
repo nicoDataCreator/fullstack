@@ -28,6 +28,7 @@ const Nav = () => {
         <li><Link className="letrasnav" to='/'>Home</Link></li>
         <li><Link className="letrasnav" to='/contact'>Contact</Link></li>
         <li><Link className="letrasnav" to='/login'>Login</Link></li>
+        <li><Link className="letrasnav" to='/dashboard/admin'>Dashboard Admin</Link></li>
         <li>
           <Link className="letras-nav-icon" to='/dashboard/user'>
             <article className="perfil-btn">
