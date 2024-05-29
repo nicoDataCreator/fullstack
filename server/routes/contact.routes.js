@@ -1,5 +1,4 @@
 // RUTAS ADMIN & USER - TABLA CONTACTO
-
 const router = require("express").Router();
 const contactController = require('../controllers/contact.controller');
 

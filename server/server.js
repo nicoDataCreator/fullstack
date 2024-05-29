@@ -132,6 +132,7 @@ app.use("/api/signup", signupRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/user", clientRoutes);
+app.use("/api/authorize", googleRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
