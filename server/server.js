@@ -39,17 +39,28 @@ const passport = require("passport");
 
 // Middlewares
 app.use(cors());
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      frameSrc: ["'self'",
-      "https://accounts.google.com",
-      "https://chatybe.streamlit.app",
-      "https://destinomap.streamlit.app"]
-    }
-  }
-}));
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://apis.google.com"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app", "https://destinomap.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        connectSrc: [
+          "'self'",
+          "http://localhost:3000",
+          "https://beyond-education.onrender.com/",
+          "https://accounts.google.com",
+          "https://www.google-analytics.com",
+        ],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      },
+    },
+  })
+);
+
 app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
