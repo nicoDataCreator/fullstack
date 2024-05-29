@@ -6,6 +6,8 @@ const session = require("express-session");
 const cors = require("cors");
 const helmet = require("helmet");
 require("../server/config/auth.js");
+require("dotenv").config();
+
 // Para rutas del Server
 const path = require("path");
 require("dotenv").config();
@@ -32,7 +34,7 @@ const contactRoutes = require("./routes/contact.routes");
 const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes.js");
 const loginRoutes = require("./routes/login.routes.js");
-const logoutRoutes= require("./routes/logout.routes.js")
+const logoutRoutes = require("./routes/logout.routes.js");
 const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
@@ -47,11 +49,19 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://apis.google.com"],
         styleSrc: ["'self'", "https://fonts.googleapis.com"],
-        frameSrc: ["'self'", "https://accounts.google.com", "https://chatybe.streamlit.app", "https://destinomap.streamlit.app"], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
+        frameSrc: [
+          "'self'",
+          "https://accounts.google.com",
+          "https://chatybe.streamlit.app",
+          "https://destinomap.streamlit.app",
+          "https://insidebeyondeducation.streamlit.app/"
+        ], // Permitir frames desde accounts.google.com y chatybe.streamlit.app        
+        imgSrc: ["'self'", "data:", "https://www.gstatic.com"],
         connectSrc: [
           "'self'",
           "http://localhost:3000",
           "https://beyond-education.onrender.com/",
+          "https://fullstack-both.onrender.com/",
           "https://accounts.google.com",
           "https://www.google-analytics.com",
         ],
@@ -65,7 +75,9 @@ app.use(express.json());
 app.use(session({ secret: "beyond-education" }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({ secret: 'your-secret-key', resave: false, saveUninitialized: true }));
+app.use(
+  session({ secret: "your-secret-key", resave: false, saveUninitialized: true })
+);
 
 /* ----- WEB ROUTES ----- */
 // http://localhost:3000/
