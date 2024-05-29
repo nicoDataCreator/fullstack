@@ -4,7 +4,7 @@
   "description": "Root Folder",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run build && npm run start"
   },
