@@ -10,7 +10,8 @@ require("../server/config/auth.js");
 const path = require("path");
 require("dotenv").config();
 const bodyParser = require("body-parser");
-//
+const cookieParser = require('cookie-parser');
+// Use cookie-parser middleware to handle cookies
 
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
@@ -18,6 +19,7 @@ const isLoggedIn = (req, res, next) => {
 
 const app = express();
 const port = 3000;
+app.use(cookieParser());
 
 /* app.use(express.urlencoded()); */
 app.use(
@@ -25,6 +27,7 @@ app.use(
     extended: true,
   })
 );
+
 app.use(bodyParser.json());
 
 // Requirements: routes
@@ -108,7 +111,18 @@ app.get("/auth/failure", (req, res) => {
 // http://localhost:3000/protected
 // Redirects the user if the sign-in was successful
 app.get("/protected", isLoggedIn, (req, res) => {
-  res.send("Hello User");
+  const userInfo = {
+    email: req.user.email,
+    password: req.user.id
+  };
+
+  const userInfoString = JSON.stringify(userInfo);
+  // console.log(req.user.email); // email
+  // console.log(req.user.id); //contraseña
+  // Guardar en la BBDD si no existe
+  // Generar JWT con {email,rol}
+  res.cookie('user', userInfoString, { httpOnly: true, secure: true }).redirect("/");
+  // devolver cookies
 });
 
 /* ----- API ROUTES ----- */
