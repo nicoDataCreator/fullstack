@@ -8,7 +8,7 @@ const Login = () => {
     event.preventDefault();
 
     // Redirect to the specified URL
-    window.location.href = 'http://localhost:3000/auth/google';
+    window.location.href = 'http://localhost:3000/api/authorize/auth/google';
   };
 
   return (

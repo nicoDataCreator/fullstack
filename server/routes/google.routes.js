@@ -7,19 +7,19 @@ const isLoggedIn = (req, res, next) => {
   };
 
 router.get("/auth/google", passport.authenticate("google", {
-    scope: ["email", "profile"],
+    scope: ["email", "profile"],  
 }));
 
-router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/auth/failure",}), googleController.checkCallback);
+router.get("/google/callback", passport.authenticate("google", { 
+    failureRedirect: "/auth/failure",}), googleController.checkCallback);
 
-router.get("/protected", isLoggedIn, (req, res) => {
+router.get("/contact", isLoggedIn, (req, res) => {
     const userInfo = {
         email: req.user.email,
         password: req.user.id
     };
     return userInfo;
 })
-
 
 router.get("/auth/failure", (req, res) => {
     res.send("Authentication failed");
