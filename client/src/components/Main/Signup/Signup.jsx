@@ -9,7 +9,7 @@ const Signup = () => {
     e.preventDefault();
     console.log("handleSubmit called");
 
-    const formData = new FormData(e.target.form); // Pasar el formulario directamente
+    const formData = new FormData(e.target);
     const data = {
       email: formData.get("email"),
       password: formData.get("password"),
@@ -20,7 +20,7 @@ const Signup = () => {
       console.log(data);
       const response = await axios.post(
         "http://localhost:3000/api/signup/",
-        data,
+        JSON.stringify(data), 
         {
           headers: {
             "Content-Type": "application/json",

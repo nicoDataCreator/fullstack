@@ -30,7 +30,6 @@ const newslettertRoutes = require("./routes/newsletter.routes");
 const signupRoutes = require("./routes/signup.routes");
 const loginRoutes = require("./routes/login.routes.js");
 const logoutRoutes = require("./routes/logout.routes.js");
-const logoutRoutes = require("./routes/logout.routes.js");
 const clientRoutes = require("./routes/client.routes.js");
 
 const passport = require("passport");
