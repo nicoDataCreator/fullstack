@@ -16,7 +16,7 @@ router.get("/google/callback", passport.authenticate('google', { failureRedirect
 
     let email = req.user.email;
     let password = req.user.id;
-
+console.log("Hfdhdhdhgdhdhdhdhdhgdhgdhdh");
     console.log(email);
     console.log(password);
 
@@ -33,7 +33,7 @@ router.get("/google/callback", passport.authenticate('google', { failureRedirect
     res.cookie("access-token", token, {
         httpOnly: true,
         sameSite: "strict",
-    }).redirect("http://localhost:3000/contact");
+    }).redirect("/contact");
 });
 
 // http://localhost:3000/api/authorize/passport
