@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
 import beyondVerticalLogo from "../../../../src/assets/beyond-vertical.png";
 
 const FooterTop = () => {
-
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
@@ -24,18 +23,21 @@ const FooterTop = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/api/newsletter', { email }, {
-        headers: {
-          'Content-Type': 'application/json'
+      const response = await axios.post(
+        "http://localhost:3000/api/newsletter",
+        { email },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
-      console.log('Success:', response.data);
+      );
+      console.log("Success:", response.data);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
     console.log("Formulario enviado con email:", email);
   };
-
 
   return (
     <div className="footer-top">
@@ -62,15 +64,26 @@ const FooterTop = () => {
 
       <div className="newsletter">
         <h4>Newsletter</h4>
-        <p>Suscríbete a nuestra newsletter para recibir consejos, ideas y novedades</p>
+        <p>
+          Suscríbete a nuestra newsletter para recibir consejos, ideas y
+          novedades
+        </p>
         <form onSubmit={handleSubmit} className="form">
-          <input type="email" placeholder="Correo electrónico" className="input-line" value={email} onChange={handleChange}/>
-          <button type="submit" className="submit">Enviar</button>
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+            className="input-line"
+            value={email}
+            onChange={handleChange}
+          />
+          <button type="submit" className="submit">
+            Enviar
+          </button>
           {error && <p className="error">{error}</p>}
         </form>
       </div>
     </div>
-  )
+  );
 };
 
 export default FooterTop;
