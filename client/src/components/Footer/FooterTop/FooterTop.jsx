@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import axios from "axios";
 import beyondVerticalLogo from "../../../../src/assets/beyond-vertical.png";
@@ -23,10 +24,8 @@ const FooterTop = () => {
       return;
     }
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/newsletter",
-        { email },
-        {
+      const response = await axios.post('/api/newsletter', { email }, {
+ 
           headers: {
             "Content-Type": "application/json",
           },

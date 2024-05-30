@@ -1,10 +1,9 @@
 @import '../utils/variables.scss';
 
-
 .home {
     position: relative;
     text-align: center;
-    margin-top:10px;
+    margin-top: 10px;
 
     .button-container {
         position: relative;
@@ -12,65 +11,56 @@
         flex-direction: column;
         justify-content: center;
 
-
         .principal {
             width: 100%;
             height: auto;
+            filter: brightness(50%);
         }
 
-
         .pideinfo {
+            position: absolute; // Make this absolute to overlay on the image
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            padding: 20px;
 
             .asesoramiento,
             .subtitulo,
             .botoninfo {
-                position: absolute;
                 color: white;
                 text-shadow: 1px 1px 2px black;
+                margin: 10px 0;
 
                 &.asesoramiento {
-                    top: 200px;
-                    left: 20px;
-                    transform: translate(0, 0);
-                    font-size: 16px;
+                    font-size: 14px;
                     z-index: 2;
                     font-family: "Lato", sans-serif;
                 }
 
                 &.subtitulo {
-                    top: 100px;
-                    left: 20px;
-                    transform: translate(0, -0);
-                    font-size: 18px;
+                    font-size: 14px;
                     z-index: 2;
                     font-family: 'Nothing You Could Do', cursive;
                 }
 
                 &.botoninfo {
-                    bottom: 0px;
-                    right: 100px;
                     width: 200px;
                     height: 30px;
-                    transform: translate(0, 0);
                     background-color: $magenta;
                     color: white;
                     padding: 3px 20px;
-                    margin-bottom: 70px;
                     text-decoration: none;
                     border-radius: 7px;
                     z-index: 2;
                     font-size: 18px;
                     font-family: 'Nothing You Could Do', cursive;
                 }
-
             }
-
         }
-
-
     }
 
     .textofondo {
@@ -89,16 +79,16 @@
             margin: 10px 0;
             font-family: 'Nothing You Could Do', cursive;
             color: white;
-            font-size: 24px;
+            font-size: 16px;
         }
     }
 }
-
 
 @media only screen and (min-width: 720px) {
     .home {
         position: relative;
         text-align: center;
+        margin-top: 10px;
     
         .button-container {
             position: relative;
@@ -106,72 +96,63 @@
             flex-direction: column;
             justify-content: center;
     
-    
             .principal {
                 width: 100%;
                 height: auto;
+                filter: brightness(50%);
             }
     
-    
             .pideinfo {
+                position: absolute; // Make this absolute to overlay on the image
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+                padding: 20px;
     
                 .asesoramiento,
                 .subtitulo,
                 .botoninfo {
-                    position: absolute;
                     color: white;
                     text-shadow: 1px 1px 2px black;
+                    margin: 10px 0;
     
                     &.asesoramiento {
-                        top: 410px;
-                        left: 100px;
-                        transform: translate(0, 0);
-                        font-size: 24px;
+                        font-size: 26px;
                         z-index: 2;
                         font-family: "Lato", sans-serif;
                     }
     
                     &.subtitulo {
-                        top: 200px;
-                        left: 20px;
-                        transform: translate(0, -0);
-                        font-size: 30px;
+                        font-size: 26px;
                         z-index: 2;
                         font-family: 'Nothing You Could Do', cursive;
                     }
     
                     &.botoninfo {
-                        bottom: 70px;
-                        right: 250px;
                         width: 250px;
-                        height: 50px;
-                        transform: translate(0, 0);
+                        height: 40px;
                         background-color: $magenta;
                         color: white;
-                        padding: 5px 20px;
-                        margin-bottom: 70px;
+                        padding: 3px 20px;
                         text-decoration: none;
                         border-radius: 7px;
                         z-index: 2;
-                        font-size: 26px;
+                        font-size: 22px;
                         font-family: 'Nothing You Could Do', cursive;
                     }
-    
                 }
-    
             }
-    
-    
         }
     
         .textofondo {
             position: relative;
             background-color: $azul-tarjeta;
             width: 100%;
-            height: 500px;
+            height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -183,7 +164,7 @@
                 margin: 10px 0;
                 font-family: 'Nothing You Could Do', cursive;
                 color: white;
-                font-size: 28px;
+                font-size: 24px;
             }
         }
     }
@@ -193,6 +174,7 @@
     .home {
         position: relative;
         text-align: center;
+        margin-top: 10px;
     
         .button-container {
             position: relative;
@@ -200,76 +182,69 @@
             flex-direction: column;
             justify-content: center;
     
-    
             .principal {
                 width: 100%;
                 height: auto;
+                filter: brightness(50%);
+
             }
     
-    
             .pideinfo {
+                position: absolute; // Make this absolute to overlay on the image
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+                padding: 20px;
+                padding-bottom: 380px;
     
                 .asesoramiento,
                 .subtitulo,
                 .botoninfo {
-                    position: absolute;
                     color: white;
                     text-shadow: 1px 1px 2px black;
+                
     
                     &.asesoramiento {
-                        top: 660px;
-                        left: 500px;
-                        transform: translate(0, 0);
-                        font-size:40px;
+                        font-size: 40px;
                         z-index: 2;
                         font-family: "Lato", sans-serif;
                     }
     
                     &.subtitulo {
-                        top: 450px;
-                        left: 100px;
-                        transform: translate(0, -0);
-                        font-size: 45px;
+                        font-size: 40px;
                         z-index: 2;
                         font-family: 'Nothing You Could Do', cursive;
                     }
     
                     &.botoninfo {
-                        bottom: 550px;
-                        right: 700px;
                         width: 450px;
                         height: 70px;
-                        transform: translate(0, 0);
                         background-color: $magenta;
                         color: white;
-                        padding: 5px 20px;
-                        margin-bottom: 70px;
+                        padding: 3px 20px;
                         text-decoration: none;
                         border-radius: 7px;
                         z-index: 2;
                         font-size: 40px;
                         font-family: 'Nothing You Could Do', cursive;
                     }
-    
                 }
-    
             }
-    
-    
         }
     
         .textofondo {
             position: relative;
             background-color: $azul-tarjeta;
             width: 100%;
-            height: 700px;
+            height: 650px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 50px;
+            padding: 40px;
             z-index: 1;
     
             .primerafrase,
