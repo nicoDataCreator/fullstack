@@ -1,13 +1,38 @@
-// RUTAS USUARIO - TABLA LOGIN
+
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports signup.routes
+ * @namespace routes 
+ */
+/**
+ * Este archivo define las rutas para el usuario y la tabla de inicio de sesión.
+ * @memberof routes
+ * 
+ */
+
 const router = require("express").Router();
 const signupController = require('../controllers/signup.controller');
 
-// http://localhost:3000/api/signup
-
-// El usuario introduce sus datos y se envían a la base de datos para registrar ese usuario
+/**
+ * Ruta para crear un nuevo usuario.
+ * @name POST/api/signup
+ * @function
+ * @memberof module:routes/signup.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.post('/', signupController.createUser);
 
-// El usuario en algún momento debería poder cambiar su contraseña, o el admin asignarle una nueva ¡Ruta protegida!
+/**
+ * Ruta para actualizar los datos de un usuario.
+ * @name PUT/api/signup
+ * @function
+ * @memberof module:routes/signup.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.put('/', signupController.updateUser);
 
 module.exports = router;

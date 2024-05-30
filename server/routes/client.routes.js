@@ -1,23 +1,68 @@
-// RUTAS INFOCLIENT - TABLA ALUMNOS
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports client.routes
+ */
+/**
+ * Este archivo define las rutas para el controlador de clientes para la tabla de alumnos.
+ * @memberof routes
+ */
 
 const router = require("express").Router();
 const clientController = require('../controllers/client.controller');
 
-// http://localhost:3000/api/user
-// Create a new user in the "alumnos" table (guarda en la base de datos "alumnos" el perfil total del formulario de contrato)
+/**
+ * Ruta para crear un nuevo cliente en la tabla de alumnos.
+ * @name POST/api/user
+ * @function
+ * @memberof module:routes/client.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.post('/', clientController.createClient);
 
-
-// El usuario ve el formulario de contrato vacío con los datos introducidos (con o sin datos)
+/**
+ * Ruta para que el usuario vea el formulario de contrato con los datos introducidos.
+ * @name GET/api/user/:email?
+ * @function
+ * @memberof module:routes/client.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.get('/:email?', clientController.getClient);
 
-//Adim puede listar todos los alumnos/clientes
+/**
+ * Ruta para que el administrador obtenga información sobre todos los clientes/alumnos.
+ * @name GET/api/user/
+ * @function
+ * @memberof module:routes/client.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.get('/', clientController.getAllClients);
 
-// El usuario hace submit de sus datos introducidos en el formulario (siempre se va a hacer un put ya que solo se modifican los campos que inicialmente están vacíos)
+/**
+ * Ruta para que el usuario actualice sus datos introducidos en el formulario de contrato.
+ * @name PUT/api/user/
+ * @function
+ * @memberof module:routes/client.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.put('/', clientController.updateClient);
 
-// Desde el dashboard de admin se podría eliminar toda la información de un cliente/alumno/user
+/**
+ * Ruta para que el administrador elimine toda la información de un cliente/alumno.
+ * @name DELETE/api/user/
+ * @function
+ * @memberof module:routes/client.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.delete('/', clientController.deleteClient);
 
 module.exports = router;

@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "generate-docs": "jsdoc -c ./jsdoc.json"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "pg": "^8.11.5"
   },
   "devDependencies": {
+    "jsdoc": "^4.0.3",
     "nodemon": "^3.1.0"
   }
 }

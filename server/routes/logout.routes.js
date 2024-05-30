@@ -1,14 +1,46 @@
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports logout.routes
+ */
+/**
+ * Este archivo define las rutas para el controlador de cierre de sesión.
+ * @memberof routes
+ */
+
 const router = require("express").Router();
 const logoutController = require('../controllers/logout.controller');
 
-// El usuario introduce sus datos y se envían a la base de datos
+/**
+ * Ruta para cerrar la sesión de un usuario.
+ * @name PUT/api/logout
+ * @function
+ * @memberof module:routes/logout.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.put('/', logoutController.logoutUser);
 
-// El administrador puede ver toda la información de un cliente (se elige por email) o todos ¡Ruta protegida, dentro del dashboard de admin!
+/**
+ * Ruta para que el administrador obtenga información sobre un usuario o todos los usuarios.
+ * @name GET/api/logout/:email?
+ * @function
+ * @memberof module:routes/logout.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.get('/:email?', logoutController.getUsers);
 
-// El administrador puede eliminar un usuario de la tabla login ¡Ruta protegida, dentro del dashboard de admin!
+/**
+ * Ruta para que el administrador elimine un usuario de la tabla de inicio de sesión.
+ * @name DELETE/api/logout/:email
+ * @function
+ * @memberof module:routes/logout.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.delete('/:email', logoutController.deleteUser);
 
 module.exports = router;
-  

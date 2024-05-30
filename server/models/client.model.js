@@ -1,7 +1,39 @@
+
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports client.model
+/**
+/**
+ * Este archivo contiene funciones para interactuar con la base de datos relacionadas con la gestión de clientes/alumnos.
+ * @memberof models
+ */
+
 const pool = require("../config/db_pgsql.js"); // Conexion a la BD
 const queries = require("../sql_queries/client.queries.js"); // Queries SQL
 
-// Create a new user
+/**
+ * Crea un nuevo cliente en la base de datos.
+ * @param {Object} client - Objeto que contiene la información del cliente.
+ * @param {string} client.nombre - Nombre del cliente.
+ * @param {string} client.apellidos - Apellidos del cliente.
+ * @param {string} client.fecha_nac - Fecha de nacimiento del cliente.
+ * @param {string} client.dni - DNI del cliente.
+ * @param {string} client.nacionalidad - Nacionalidad del cliente.
+ * @param {string} client.domicilio - Domicilio del cliente.
+ * @param {string} client.ciudad - Ciudad del cliente.
+ * @param {string} client.provincia - Provincia del cliente.
+ * @param {string} client.cp - Código postal del cliente.
+ * @param {string} client.telefono - Teléfono del cliente.
+ * @param {string} client.email - Email del cliente.
+ * @param {string} client.colegio - Colegio del cliente.
+ * @param {string} client.curso - Curso del cliente.
+ * @param {Object} client.representante1 - Información del primer representante.
+ * @param {Object} client.representante2 - Información del segundo representante.
+ * @param {Object} client.datos_facturacion - Información de facturación.
+ * @returns {Promise<Object>} Mensaje de éxito.
+ */
+
+
 const createClient = async (client) => {
   const {
     nombre,
@@ -88,7 +120,11 @@ const createClient = async (client) => {
   }
 };
 
-// Get  clients by email (admin)
+/**
+ * Obtiene un cliente por email.
+ * @param {string} email - Email del cliente.
+ * @returns {Promise<Object>} Cliente encontrado.
+ */
 const getClient = async (email) => {
   let client, result;
   try {
@@ -104,7 +140,10 @@ const getClient = async (email) => {
   return result;
 };
 
-// Get all clients (admin)
+/**
+ * Obtiene todos los clientes.
+ * @returns {Promise<Array>} Lista de todos los clientes.
+ */
 const getAllClients = async () => {
   let client, result;
   try {
@@ -120,8 +159,11 @@ const getAllClients = async () => {
   return result;
 };
 
-
-// Delete  client by email (admin)
+/**
+ * Elimina un cliente por email.
+ * @param {string} email - Email del cliente a eliminar.
+ * @returns {Promise<Object>} Cliente eliminado.
+ */
 const deleteClient = async (email) => {
   let client, result;
   try {
@@ -136,9 +178,6 @@ const deleteClient = async (email) => {
   }
   return result;
 };
-
-
-
 
 const users = {
   createClient,

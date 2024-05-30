@@ -1,19 +1,46 @@
-// RUTAS ADMIN & USER - TABLA CONTACTO
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports contact.routes
+ */
+/**
+ * Este archivo define las rutas para el controlador de contacto para la tabla de contacto.
+ * @memberof routes
+ */
 
 const router = require("express").Router();
 const contactController = require('../controllers/contact.controller');
 
-// http://localhost:3000/api/contact
-
-// El usuario introduce sus datos y se envían a la base de datos.
+/**
+ * Ruta para que el usuario cree un nuevo contacto.
+ * @name POST/api/contact
+ * @function
+ * @memberof module:routes/contact.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.post('/', contactController.createContact);
 
-// El administrador puede ver todos los usuarios que se han registrado. ¡Ruta protegida!
+/**
+ * Ruta para que el administrador obtenga información sobre los contactos.
+ * @name GET/api/contact/:id?
+ * @function
+ * @memberof module:routes/contact.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.get('/:id?', contactController.getContacts);
 
-/* Al igual que en newsletter, no vamos a incluir un put porque no vamos a modificar los datos que el usuario nos da para pedir información*/
-
-// El administrador puede eliminar usuarios que se han registrado ¡Ruta protegida!
+/**
+ * Ruta para que el administrador elimine un contacto de la tabla de contacto.
+ * @name DELETE/api/contact/:id
+ * @function
+ * @memberof module:routes/contact.routes
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 router.delete('/:id', contactController.deleteContact);
 
 module.exports = router;

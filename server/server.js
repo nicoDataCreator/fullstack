@@ -1,3 +1,13 @@
+
+/**
+ * @author Adrián Terciado, Gema Millán, Pablo Rubio, Verónica Parra 
+ * @exports server
+ */
+/**
+ * Este archivo representa el servidor Express para el proyecto.
+ * @memberof server
+ */
+
 process.on("warning", (e) => console.warn(e.stack));
 
 // Requirements: express, pg
@@ -12,8 +22,14 @@ require("dotenv").config();
 const path = require("path");
 require("dotenv").config();
 const bodyParser = require("body-parser");
-//
 
+/**
+ * Middleware para comprobar si un usuario está autenticado.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @param {NextFunction} next - Función de siguiente middleware.
+ * @returns {void}
+ */
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
 };
@@ -83,21 +99,41 @@ app.use(
 // http://localhost:3000/
 // Home page
 // Serve static assets in production
+
+/**
+ * Middleware para servir archivos estáticos.
+ * @param {string} "client/dist" - Directorio de archivos estáticos.
+ * @returns {void}
+ */
 app.use(express.static("client/dist"));
 app.use(express.static(path.join(__dirname, "/../client/dist")));
 
+/**
+ * Ruta para servir la página principal.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/../client/dist", "index.html"));
 });
 
-// http://localhost:3000/auth
-// Page shows a button with a link that redirects to '/auth/google'
+/**
+ * Ruta para mostrar el botón de autenticación con Google.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get("/auth", (req, res) => {
   res.send('<a href="/auth/google">Authenticate with google</a>');
 });
 
-// http://localhost:3000/auth/google
-// Shows user selection through Google and allows Sign-up and Sign-in
+/**
+ * Ruta para autenticar con Google.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -105,8 +141,12 @@ app.get(
   })
 );
 
-// http://localhost:3000/google/callback
-// Handles whether Sign-in was successful or not to access the protected route
+/**
+ * Ruta de callback para autenticación con Google.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get(
   "/google/callback",
   passport.authenticate("google", {
@@ -115,14 +155,22 @@ app.get(
   })
 );
 
-// http://localhost:3000/auth/failure
-// Redirects the user if the sign-in was un-successful
+/**
+ * Ruta para manejar fallos de autenticación.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get("/auth/failure", (req, res) => {
   res.send("Authentication failed");
 });
 
-// http://localhost:3000/protected
-// Redirects the user if the sign-in was successful
+/**
+ * Ruta protegida.
+ * @param {Request} req - Objeto de solicitud de Express.
+ * @param {Response} res - Objeto de respuesta de Express.
+ * @returns {void}
+ */
 app.get("/protected", isLoggedIn, (req, res) => {
   res.send("Hello User");
 });
@@ -135,6 +183,10 @@ app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/user", clientRoutes);
 
+/**
+ * Objeto del servidor que escucha en el puerto 3000.
+ * @type {object}
+ */
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
