@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
 
-const SECRET = process.env.MY_TOKEN_SECRET
+
 
 const createToken = (payload, expirationTime = "10min") => {
 

@@ -2,6 +2,15 @@ import React from "react";
 import GoogleButton from 'react-google-button';
 
 const Signup = () => {
+
+  const handleGoogleLogin = (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Redirect to the specified URL
+    window.location.href = 'http://localhost:3000/api/authorize/auth/google';
+  };
+
   return (
     <>
       <section className="section-signup">
@@ -24,7 +33,7 @@ const Signup = () => {
             <button className="botonsubmit" type="submit" >Submit</button>
             <button className="button-google-container">
             <GoogleButton className="google-button"
-              onClick={() => { console.log('Google button clicked') }}
+              onClick={handleGoogleLogin}
             />
             </button>
           </form>

@@ -1,27 +1,22 @@
 const jwt = require("jsonwebtoken");
 const google = require('../models/google.model')
-const jasonwebtoken = require('../config/jsonWebToken')
+
+const SECRET = process.env.GOOGLE_JWT_SECRET;
 
 const checkCallback = async (req, res) => {
-    console.log("Bien, estas en checkCallback, en controlador");
 
-    const email = req.user.email;
-    const password = req.user.password;
-
-    // creamos el objeto { req.user } con los campos email y password
-    const payload = {
-        "email": email,
-        "password": password
-    }
-
+    const { email, password } = req.user;
     try {
-        // const userInfoString = JSON.stringify(userInfo);
-        const token = jasonwebtoken.createToken(payload)
-
-        res.cookie("access-token", token, {
+        // se forma el token con el email, la password y el secreto JWT
+        const token = jwt.sign({ email: req.user.email, password: req.user.password }, SECRET);
+        return res
+        .cookie("access-token", token, {
             httpOnly: true,
+            secure: true,
             sameSite: "strict",
-        }).redirect("/dashboard/user");
+        })
+        .redirect("/dashboard/user")
+        .send("Usuario logeado con Google con éxito");
 
         // una vez logeados los usuarios y habiendo recibido su cookie tokenizada,
         // pasamos el email y la password al modelo para ver si existe en la base de datos
