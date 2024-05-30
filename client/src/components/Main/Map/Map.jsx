@@ -6,7 +6,7 @@ const Map = () => {
             <iframe
                 className="stream-map"
                 src="https://destinomap.streamlit.app/?embed=true"
-                height={500}
+                height={400}
             >
             </iframe>
         </article>
