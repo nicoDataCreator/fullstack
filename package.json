@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "Root Folder",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm ci && npm run server\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run build && npm run start",
-    "dev": "concurrently \"cd client && npm run build\" \"cd server &&  npm run server\""
-
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-render": "concurrently \"cd client && npm i && npm run build\" \"cd server && npm ci && npm run server\"",
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server &&  npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,7 @@
   },
   "homepage": "https://github.com/NicoDataDesafio/fullstack#readme",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "morgan": "^1.10.0"
   }
 }

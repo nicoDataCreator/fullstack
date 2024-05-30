@@ -1,20 +1,23 @@
 const login = require('../models/login.model');
 const regex = require('../utils/regex')
 
-
-// Create a new client (segundo formulario)
 const loginUser = async(req, res) => {
-    let data;
     try {
-        if(regex.validateEmail(req.body.email) && regex.validatePassword(req.body.password)){
+        const { email, password } = req.body;
+        const user = await login.loginUser(email, password);
+        if (user.length > 0) {
+            const token = createToken({ email: user[0].email, role: user[0].role });
+            res.status(200)
+                .set('Authorization', `Bearer ${token}`)
+                .cookie('access_token', token)
+                .json({ role: user[0].role })
+                .send()
+        } else {
+            res.status(400).json({ msg: "wrong credentials" });
+        }
 
-            data = await login.loginUser(req.body.id_alumno, req.body.email, req.body.password, req.body.log_in_status);
-            res.status(201).json(data);
-        }else{
-            res.status(400).json({msg: 'Invalid email or password'});
-        }  
     } catch (error) {
-        res.status(400).json({"error":error});
+        res.status(400).json({ msg: error.message });
     }
 };
 
